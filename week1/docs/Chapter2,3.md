@@ -1,6 +1,6 @@
 ---
 
-# 2장 ~ 3장 JPA시작, 영속성 관리
+# JPA시작, 영속성 관리
 
 > 개인적으로 중요하다고 생각하는 부분만 정리하겠다.
 
@@ -18,13 +18,13 @@
 
 - 개발자는 그저 JPA문법에 맞게 사용하면 되고 각 데이터 베이스의 방언 처리를 자동으로 해준다 (물론 선배 개발자들이 미리 매핑을 해놓은 것이겠지..)
 
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5605740e-f14d-41c4-a42f-06a059d16266/_2021-07-13__9.47.22.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5605740e-f14d-41c4-a42f-06a059d16266/_2021-07-13__9.47.22.png)
+    ![](https://images.velog.io/images/donglee99/post/41fa4609-93f4-4e42-bda2-76bb2425e02d/chapter2_image1.png)
 
 ---
 
 ## 엔티티 매니저 설정
+![](https://images.velog.io/images/donglee99/post/a256e690-23f3-4d69-9efb-966d1bfe3b24/chapter2_image2.png)
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/97c6030b-abe1-42b6-8243-0855d01e90f1/_2021-07-13__9.49.59.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/97c6030b-abe1-42b6-8243-0855d01e90f1/_2021-07-13__9.49.59.png)
 
 JPA 는 persistence.xml을 통해 필요한 설정 정보를 관리한다. 따라서 JPA 를 시작하기 위해서는 persistence.xml의 설정 정보를 통해 엔티티 매니저 팩토리를 생성해야 한다.
 
@@ -48,3 +48,89 @@ EntityManager em = emf.createEntityManager();
 ➕ JPA는 항상 한 트랜잭션 안에서 데이터를 변경해야 한다.
 
 ---
+
+## 영속성 컨텍스트란?
+
+개인적으로 앞에 나왔던 것들중에 가장 중요하다고 생각하는 내용이다.
+
+> 영속성 컨텍스트란 엔티티를 영구 저장하는 환경으로 엔티티를 저장시 바로 데이터 베이스에 저장되는것이 아니라 영속성 컨텍스트에 저장되게 된다.
+
+- 즉 Persist시 엔티티는 영속성 컨텍스트에 저장되게 되고 Flush시점에 sql문과 함께 데이터베이스에 저장되게 된다.
+
+### 엔티티 생명주기
+
+- 비영속 : 영속성 컨텍스트와 관계 X 즉 아무것도 안한 상태
+- 영속 : 영속성 컨텍스트에 저장된 상태 ( 쉽게 말해서 persist )
+- 준영속 : 영속성 컨텍스트에 저장이 되었다가 분리된 상태 ( em.detach() / em.close() / em.clear() )
+- 삭제 : 삭제된 상태
+
+### 영속성 컨텍스트의 특징
+
+- 영속성 컨텍스트와 식별자 값
+
+    영속성 컨텍스트는 엔티티를 식별자 값으로 분류 한다. 따라서 식별자값이 꼭 필요하다. (추가 설명 예정)
+
+- 영속성 컨텍스트와 데이터 베이스 저장
+
+    JPA는 커밋하는 순간 영속성 컨텍스트에 새로 저장된 데이터를 DB에 반영한다 이를 Flush라 함
+
+- 장점
+    1. 1차 캐시
+    2. 동일성 보장
+    3. 트랜잭션을 지원하는 쓰기 지연
+    4. 변경 감지
+    5. 지연 로딩
+
+☝️ **1차 캐시** 
+
+- 영속성 컨텍스트는 내부에 캐시를 가지고 있는데 이를 1차 캐시라 한다. 엔티티는 모두 이곳에 저장되고 em.find() 가 호출될시 바로 데이터 베이스에서 조회 하는것이 아니라 1차캐시를 먼저 조회 하고 찾는 객체가 없다면 DB를 조회한다.
+
+    ![](https://images.velog.io/images/donglee99/post/55c9016e-fa59-4ccb-be40-04ac7e92ee9c/chapter3_image1.png)
+
+☝️ **동일성 보장**
+
+- 영속성 컨텍스트는 성능상 이점과 엔티티의 동일성을 보장한다.
+
+    ```java
+    Member a = em.find(Member.class, "member1");
+    Member b = em.find(Member.class, "member1");
+
+    a == b ??
+    ```
+
+    위 코드는 a 에서 조회를 하고 1차캐시에 member1값이 들어가게 되고 b에서도 1차 캐시에서 조회를 하게된다. 이때문에 앞에서 말했던 JPA의 동일성이 보장되게 된다.
+
+☝️ **쓰기 지연**
+
+- 앞에서 말한것처럼 persist를 아무리 한다해도 commit이 되지 않으면 한 트랜잭션 안에서 sql문이  쓰기지연 sql저장소에 쌓이지만 나가지 않는다 (JPQL을 사용하지 않는다는 가정) 따라서 flush나 commit 전까지는 영속성 컨텍스트에 엔티티가 쌓이게 된다. 이로 인해 쓰기지연이 가능해진다.
+
+    ![](https://images.velog.io/images/donglee99/post/751defee-f7e2-4b9d-a20d-1bb3267d56e8/chapter3_image2.png)
+
+☝️ **변경감지(dirty checking)**
+
+- JPA에는 update가 존재하지 않는다 그렇다면 어떻게 변경된 내용을 반영할것인가? 기존 sql문은 update 시 쿼리를 직접 수정된 부분 부분 다 날려야 한다 → 이는 실수를 유발함
+- JPA는 이를 해결하기 위해 따로 update 가 없이 알아서 이를 해결해준다. 바로 엔티티를 flush 할때 이전 스냅샷과 비교를 해 변경된 부분이 있다면 업데이트를 해 수정해준다. ( 착각하지 말아야 할것 ! 부분만 업데이트가 아니라 모든 부분이 업데이트 됨 즉 name만 변경됐다해서 name만 업데이트 하는것이 아니라 name 과 age모두 업데이트 )
+
+    ‼️ 영속성 컨텍스트 관리하에 있는 엔티티만 가능
+
+---
+
+## 플러시 (flush)
+
+> 플러시란 영속성 컨텍스트의 내용을 데이터베이스에 반영하는 것을 의미한다.
+
+1. 변경 감지를 통해 스냅샷을 비교하며 수정된 엔티티가 있다면 반영
+2. 쓰기 지연 sql저장소의 쿼리를 데이터 베이스에 반영
+
+### 플러시 하는 방법
+
+1. 직접 호출 em.flush()
+2. 트랜잭션 커밋
+3. JPQL쿼리 실행
+
+### 옵션
+
+```java
+FlushModeType.AUTO // 커밋이나 쿼리 실행시
+FlushModeType.COMMIT // 커밋시
+```
