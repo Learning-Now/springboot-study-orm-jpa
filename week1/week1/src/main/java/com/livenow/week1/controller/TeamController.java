@@ -20,9 +20,15 @@ public class TeamController {
         teamService.save(name);
     }
 
-    @PostMapping("/members")
+    @PostMapping("/member/add")
     @ResponseStatus(HttpStatus.OK)
     public void addMember(@RequestParam Long teamId, @RequestParam Long memberId) {
         teamService.addMember(teamId, memberId);
+    }
+
+    @PostMapping("/member/delete")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteMember(@RequestParam Long teamId, @RequestParam Long memberId) {
+        teamService.deleteMember(teamId, memberId);
     }
 }

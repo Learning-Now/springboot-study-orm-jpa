@@ -32,6 +32,15 @@ public class TeamService {
         Member member = memberRepository.findById(memberId);
         member.changeTeam(team);
 
-        team.getMembers().add(member);
+        team.addMember(member);
+    }
+
+    @Transactional
+    public void deleteMember(Long teamId, Long memberId) {
+        Team team = teamRepository.findById(teamId);
+        Member member = memberRepository.findById(memberId);
+        member.deleteTeam();
+
+        team.deleteMember(member);
     }
 }

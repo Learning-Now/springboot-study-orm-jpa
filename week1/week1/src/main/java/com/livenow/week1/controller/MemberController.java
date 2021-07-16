@@ -1,8 +1,11 @@
 package com.livenow.week1.controller;
 
+import com.livenow.week1.domain.Member;
 import com.livenow.week1.service.MemberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/members")
@@ -18,5 +21,23 @@ public class MemberController {
     @ResponseStatus(HttpStatus.OK)
     public void saveMember(@RequestParam String name, @RequestParam int age) {
         memberService.save(name, age);
+    }
+
+    @PostMapping("/find/all")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Member> findMembers() {
+        return memberService.findAll();
+    }
+
+    @PostMapping("/find")
+    @ResponseStatus(HttpStatus.OK)
+    public Member findMember(@RequestParam Long id) {
+        return memberService.findById(id);
+    }
+
+    @PostMapping("/delete")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteMember(@RequestParam Long id) {
+        memberService.delete(id);
     }
 }

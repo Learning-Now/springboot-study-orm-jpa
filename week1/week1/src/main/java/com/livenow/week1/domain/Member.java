@@ -44,4 +44,8 @@ public class Member {
     public void changeTeam(Team team) {
         this.team = team;
     }
+
+    public void deleteTeam() {
+        this.team = null;
+    }
 }
