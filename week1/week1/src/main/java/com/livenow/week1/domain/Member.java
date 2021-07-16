@@ -1,5 +1,6 @@
 package com.livenow.week1.domain;
 
+import com.livenow.week1.controller.dto.MemberUpdateRequestDto;
 import lombok.Builder;
 import lombok.Generated;
 import lombok.Getter;
@@ -32,6 +33,12 @@ public class Member {
         this.age = age;
         this.team = team;
     }
+    public Long update(MemberUpdateRequestDto requestDto) {
+        this.age = requestDto.getAge();
+        this.name = requestDto.getName();
+        this.team = requestDto.getTeam();
+        return this.id;
+    }
 
     public void changeTeam(Team team) {
         this.team = team;
@@ -45,4 +52,6 @@ public class Member {
         this.team = team;
         team.addMember(this);
     }
+
+
 }

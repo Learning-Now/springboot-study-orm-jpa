@@ -1,6 +1,7 @@
 package com.livenow.week1.service;
 
 import com.livenow.week1.controller.dto.MemberResponseDto;
+import com.livenow.week1.controller.dto.MemberUpdateRequestDto;
 import com.livenow.week1.domain.Member;
 import com.livenow.week1.domain.MemberRepository;
 import com.livenow.week1.domain.Team;
@@ -31,5 +32,11 @@ public class MemberService {
     public MemberResponseDto findById(Long id) {
         Member member = memberRepository.findById(id);
         return new MemberResponseDto(member);
+    }
+
+    @Transactional
+    public Long update(Long id, MemberUpdateRequestDto requestDto) {
+        Member member = memberRepository.findById(id);
+        return member.update(requestDto);
     }
 }
