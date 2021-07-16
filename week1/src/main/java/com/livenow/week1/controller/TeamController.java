@@ -1,5 +1,6 @@
 package com.livenow.week1.controller;
 
+import com.livenow.week1.domain.Team;
 import com.livenow.week1.service.TeamService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -29,5 +30,11 @@ public class TeamController {
     @ResponseStatus(HttpStatus.OK)
     public void deleteMember(@RequestParam String teamId) {
         teamService.deleteMember(teamId);
+    }
+
+    @DeleteMapping("{/id}")
+    public void setDeleted(String id) {
+        TeamService.deleteMember(id);
+
     }
 }

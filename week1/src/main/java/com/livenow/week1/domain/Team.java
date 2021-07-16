@@ -1,5 +1,6 @@
 package com.livenow.week1.domain;
 
+import com.livenow.week1.service.TeamService;
 import lombok.Getter;
 
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Getter
 @Entity
@@ -31,5 +33,14 @@ public class Team {
     public Team(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public static Optional<Object> findById(Long id) {
+        return Team.findById(id);
+    }
+
+
+    public void setDeleted(String id) {
+        TeamService.deleteMember(id);
     }
 }

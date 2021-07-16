@@ -7,8 +7,6 @@ import com.livenow.week1.domain.TeamRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-
 @Service
 public class TeamService {
 
@@ -21,6 +19,8 @@ public class TeamService {
         this.memberRepository = memberRepository;
         this.teamRepository = teamRepository;
     }
+
+
 
     @Transactional
     public void save(String name) {
@@ -40,6 +40,13 @@ public class TeamService {
     @Transactional
     public static void deleteMember(String memberId) {
         TeamService.deleteMember(memberId);
+    }
+    @Transactional
+    public void delete(String id) {
+        Team team = (Team) Team.findById(new Long(id)).orElseThrow(()->new RuntimeException("아이디가 존재하지 않습니다."));
+        team.setDeleted(id);
+        teamRepository.save(team);
+
     }
 
 }

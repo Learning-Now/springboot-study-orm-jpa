@@ -33,4 +33,9 @@ public class MemberService {
     {
         return memberRepository.findAll();
     }
+    @Transactional
+    public static void delete(Integer id){
+        MemberRepository.delete(id);
+    }
+
 }

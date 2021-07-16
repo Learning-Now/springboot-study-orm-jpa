@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cfcf988-3e73-4e74-ba4e-64506f0f533f" name="Default Changelist" comment="" />
+    <list default="true" id="9cfcf988-3e73-4e74-ba4e-64506f0f533f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/Week1Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/domain/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/domain/Member.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/domain/MemberRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/domain/MemberRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/service/MemberService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/controller/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/controller/TeamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/domain/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/domain/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/domain/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/domain/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/domain/TeamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/domain/TeamRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/service/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/service/TeamService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +37,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
       <filtered-out-file-type name="LOCAL_BRANCH" />
@@ -31,6 +49,7 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1vM00AVUwx45GA1wUFXHNRN7lHM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -38,6 +57,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
@@ -98,5 +119,16 @@
       <updated>1626356426947</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
