@@ -24,15 +24,11 @@ class MemberRepositoryTest {
     @Test
     void memberGetTeam() {
         //given
-<<<<<<< HEAD
         Member member = new Member().builder()
                 .age(1)
                 .name("태정바보")
                 .team(new Team("배민"))
                 .build();
-=======
-        Member member = new Member(1L, "동현이 샛기", 3);
->>>>>>> 5bb9a61ce753b62c7a05b8ccb37b91928c6042c1
         //when
         memberRepository.save(member);
         Member findMember = memberRepository.findById(1L);
@@ -44,17 +40,12 @@ class MemberRepositoryTest {
     @Test
     void memberGetTeam2() {
         //given
-<<<<<<< HEAD
         Member member = new Member().builder()
                 .age(1)
                 .name("태정바보")
                 .team(new Team("배민"))
                 .build();
         Team team = new Team("배달의 민족");
-=======
-        Member member = new Member(1L, "동현이 샛기", 3);
-        Team team = new Team(1L, "배달의 민족");
->>>>>>> 5bb9a61ce753b62c7a05b8ccb37b91928c6042c1
         member.changeTeam(team);
         //when
         //teamRepository.save(team);

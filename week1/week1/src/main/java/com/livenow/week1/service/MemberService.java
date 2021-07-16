@@ -1,15 +1,10 @@
 package com.livenow.week1.service;
 
-<<<<<<< HEAD
 import com.livenow.week1.controller.dto.MemberResponseDto;
 import com.livenow.week1.controller.dto.MemberUpdateRequestDto;
 import com.livenow.week1.domain.Member;
 import com.livenow.week1.domain.MemberRepository;
-import com.livenow.week1.domain.Team;
-=======
-import com.livenow.week1.domain.Member;
-import com.livenow.week1.domain.MemberRepository;
->>>>>>> 5bb9a61ce753b62c7a05b8ccb37b91928c6042c1
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,7 +21,6 @@ public class MemberService {
 
     @Transactional
     public void save(String name, int age) {
-<<<<<<< HEAD
         Member member = new Member().builder()
                 .name(name)
                 .age(age)
@@ -52,9 +46,4 @@ public class MemberService {
         member.getTeam().removeMember(member);
         memberRepository.remove(member);
     }
-=======
-        Member member = new Member(AGE++, name, age);
-        memberRepository.save(member);
-    }
->>>>>>> 5bb9a61ce753b62c7a05b8ccb37b91928c6042c1
 }
