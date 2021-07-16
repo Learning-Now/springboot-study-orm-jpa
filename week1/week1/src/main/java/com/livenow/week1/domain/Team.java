@@ -2,10 +2,7 @@ package com.livenow.week1.domain;
 
 import lombok.Getter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +11,7 @@ import java.util.List;
 public class Team {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "team_id")
     private Long id;
 
@@ -25,12 +23,8 @@ public class Team {
     protected Team() {
     }
 
-    public Team(String name) {
-        this(null, name);
-    }
 
-    public Team(Long id, String name) {
-        this.id = id;
+    public Team(String name) {
         this.name = name;
     }
 

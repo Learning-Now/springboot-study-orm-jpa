@@ -1,6 +1,7 @@
 package com.livenow.week1.domain;
 
 import lombok.Builder;
+import lombok.Generated;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -9,7 +10,8 @@ import javax.persistence.*;
 @Entity
 public class Member {
 
-    @Id
+    @Id()
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "member_id")
     private Long id;
 
@@ -21,12 +23,11 @@ public class Member {
 
     private int age;
 
-    protected Member() {
+    public Member() {
     }
 
     @Builder
-    public Member(Long id, String name, int age, Team team) {
-        this.id = id;
+    public Member(String name, int age, Team team) {
         this.name = name;
         this.age = age;
         this.team = team;

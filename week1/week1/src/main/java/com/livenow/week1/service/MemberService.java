@@ -1,7 +1,9 @@
 package com.livenow.week1.service;
 
+import com.livenow.week1.controller.dto.MemberResponseDto;
 import com.livenow.week1.domain.Member;
 import com.livenow.week1.domain.MemberRepository;
+import com.livenow.week1.domain.Team;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +20,14 @@ public class MemberService {
 
     @Transactional
     public void save(String name, int age) {
-        Member member = new Member(AGE++, name, age);
+        Member member = new Member().builder()
+                .name(name)
+                .age(age)
+                .build();
         memberRepository.save(member);
+    }
+
+    public MemberResponseDto findById(Long id) {
+
     }
 }

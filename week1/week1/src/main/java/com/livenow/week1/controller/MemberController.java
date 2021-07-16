@@ -22,9 +22,9 @@ public class MemberController {
         memberService.save(name, age);
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public MemberResponseDto findById() {
-
+    public MemberResponseDto findById(@PathVariable Long id) {
+        return memberService.findById(id);
     }
 }
