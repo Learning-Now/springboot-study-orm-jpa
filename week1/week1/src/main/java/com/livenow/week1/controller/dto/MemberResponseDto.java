@@ -1,5 +1,6 @@
 package com.livenow.week1.controller.dto;
 
+import com.livenow.week1.domain.Member;
 import com.livenow.week1.domain.Team;
 
 public class MemberResponseDto {
@@ -8,10 +9,11 @@ public class MemberResponseDto {
     private int age;
     private Team team;
 
-    public MemberResponseDto(Long id, String name, int age, Team team) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.team = team;
+
+    public MemberResponseDto(Member member) {
+        this.id = member.getId();
+        this.name = member.getName();
+        this.age = member.getAge();
+        this.team = member.getTeam();
     }
 }

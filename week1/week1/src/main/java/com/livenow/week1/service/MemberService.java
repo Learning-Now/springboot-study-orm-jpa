@@ -27,7 +27,9 @@ public class MemberService {
         memberRepository.save(member);
     }
 
+    @Transactional
     public MemberResponseDto findById(Long id) {
-
+        Member member = memberRepository.findById(id);
+        return new MemberResponseDto(member);
     }
 }
