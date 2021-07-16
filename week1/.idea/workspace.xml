@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cfcf988-3e73-4e74-ba4e-64506f0f533f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/Week1Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/controller/MemberController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/domain/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/domain/Member.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/domain/MemberRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/domain/MemberRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/livenow/week1/service/MemberService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/controller/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/controller/TeamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/domain/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/domain/MemberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/domain/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/domain/Team.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/domain/TeamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/domain/TeamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/livenow/week1/service/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/livenow/week1/service/TeamService.java" afterDir="false" />
-    </list>
+    <list default="true" id="9cfcf988-3e73-4e74-ba4e-64506f0f533f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
