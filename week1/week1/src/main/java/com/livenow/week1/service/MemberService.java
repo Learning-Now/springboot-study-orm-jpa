@@ -39,4 +39,11 @@ public class MemberService {
         Member member = memberRepository.findById(id);
         return member.update(requestDto);
     }
+
+    @Transactional
+    public void delete(Long id) {
+        Member member = memberRepository.findById(id);
+        member.getTeam().removeMember(member);
+        memberRepository.remove(member);
+    }
 }

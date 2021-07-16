@@ -16,20 +16,27 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @PostMapping
+    @PostMapping("/svae")
     @ResponseStatus(HttpStatus.OK)
     public void saveMember(@RequestParam String name, @RequestParam int age) {
         memberService.save(name, age);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/find/{id}")
     @ResponseStatus(HttpStatus.OK)
     public MemberResponseDto findById(@PathVariable Long id) {
         return memberService.findById(id);
     }
-    @PutMapping("/{id}")
+
+    @PutMapping("/update/{id}")
     public Long update(@PathVariable Long id, @RequestBody MemberUpdateRequestDto requestDto) {
         return memberService.update(id, requestDto);
+    }
+
+    @GetMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteMember(@PathVariable Long id) {
+        memberService.delete(id);
     }
 
 }

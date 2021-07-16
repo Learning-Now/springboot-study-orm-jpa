@@ -20,5 +20,9 @@ public class MemberRepository {
     public Member findById(Long id) {
         return em.find(Member.class, id);
     }
+
+    public void remove(Member member) {
+        em.remove(member);
+    }
 }
 
