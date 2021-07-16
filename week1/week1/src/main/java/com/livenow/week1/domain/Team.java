@@ -16,6 +16,7 @@ public class Team {
     @Id
     @Column(name = "team_id")
     private Long id;
+
     private String name;
 
     @OneToMany(mappedBy = "team")
@@ -31,5 +32,13 @@ public class Team {
     public Team(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public void addMember(Member member) {
+        this.members.add(member);
+    }
+
+    public void removeMember(Member member) {
+        this.members.remove(member);
     }
 }

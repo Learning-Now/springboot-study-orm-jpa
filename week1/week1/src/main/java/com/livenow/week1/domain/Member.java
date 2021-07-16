@@ -1,5 +1,6 @@
 package com.livenow.week1.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -17,23 +18,13 @@ public class Member {
     private Team team;
 
     private String name;
+
     private int age;
 
     protected Member() {
     }
 
-    public Member(String name, int age) {
-        this(null, name, age, null);
-    }
-
-    public Member(String name, int age, Team team) {
-        this(null, name, age, team);
-    }
-
-    public Member(Long id, String name, int age) {
-        this(id, name, age, null);
-    }
-
+    @Builder
     public Member(Long id, String name, int age, Team team) {
         this.id = id;
         this.name = name;
@@ -43,5 +34,14 @@ public class Member {
 
     public void changeTeam(Team team) {
         this.team = team;
+    }
+
+    //연관관계 편의 메소드
+    public void setTeam(Team team) {
+        if (this.team == null) {
+            this.team.removeMember(this);
+        }
+        this.team = team;
+        team.addMember(this);
     }
 }
