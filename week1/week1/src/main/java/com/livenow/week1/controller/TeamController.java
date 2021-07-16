@@ -25,4 +25,5 @@ public class TeamController {
     public void addMember(@RequestParam Long teamId, @RequestParam Long memberId) {
         teamService.addMember(teamId, memberId);
     }
+
 }

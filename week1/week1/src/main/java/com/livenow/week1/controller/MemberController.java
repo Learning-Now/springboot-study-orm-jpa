@@ -1,5 +1,7 @@
 package com.livenow.week1.controller;
 
+import com.livenow.week1.controller.dto.MemberResponseDto;
+import com.livenow.week1.controller.dto.MembersResponseDto;
 import com.livenow.week1.service.MemberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,5 +20,11 @@ public class MemberController {
     @ResponseStatus(HttpStatus.OK)
     public void saveMember(@RequestParam String name, @RequestParam int age) {
         memberService.save(name, age);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public MemberResponseDto findById() {
+
     }
 }
