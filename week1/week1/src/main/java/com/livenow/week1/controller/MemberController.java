@@ -16,7 +16,7 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @PostMapping("/svae")
+    @PostMapping("/save")
     @ResponseStatus(HttpStatus.OK)
     public void saveMember(@RequestParam String name, @RequestParam int age) {
         memberService.save(name, age);

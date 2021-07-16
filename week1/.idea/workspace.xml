@@ -22,7 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="feat : MemberController delete 구현" />
+    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="feat : MemberController delete 구현">
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,6 +108,7 @@
       <workItem from="1626052612832" duration="141000" />
       <workItem from="1626425169534" duration="3798000" />
       <workItem from="1626430109879" duration="17000" />
+      <workItem from="1626430976798" duration="554000" />
     </task>
     <task id="LOCAL-00001" summary="feat : MemberResponseDto 구현">
       <created>1626425579298</created>
