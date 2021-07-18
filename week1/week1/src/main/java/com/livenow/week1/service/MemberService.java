@@ -21,7 +21,7 @@ public class MemberService {
 
     @Transactional
     public void save(String name, int age) {
-        Member member = new Member().builder()
+        Member member = Member.builder()
                 .name(name)
                 .age(age)
                 .build();

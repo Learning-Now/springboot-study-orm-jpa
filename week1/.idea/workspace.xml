@@ -24,12 +24,9 @@
   <component name="ChangeListManager">
     <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="feat : MemberController save 오타 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/TeamController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/domain/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/domain/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/domain/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/domain/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/domain/Team.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/src/test/java/com/livenow/week1/domain/MemberRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/test/java/com/livenow/week1/domain/MemberRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +111,8 @@
       <workItem from="1626052612832" duration="141000" />
       <workItem from="1626425169534" duration="3798000" />
       <workItem from="1626430109879" duration="17000" />
-      <workItem from="1626430976798" duration="1400000" />
+      <workItem from="1626430976798" duration="1423000" />
+      <workItem from="1626608352592" duration="131000" />
     </task>
     <task id="LOCAL-00001" summary="feat : MemberResponseDto 구현">
       <created>1626425579298</created>

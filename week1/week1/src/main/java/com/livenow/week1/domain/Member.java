@@ -25,7 +25,7 @@ public class Member {
 
     private int age;
 
-    public Member() {
+    protected Member() {
     }
 
     @Builder
