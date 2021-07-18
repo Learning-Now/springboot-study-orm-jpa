@@ -1,6 +1,7 @@
 package com.livenow.week1.controller;
 
-import com.livenow.week1.domain.Member;
+import com.livenow.week1.controller.dto.MemberFindResponseDto;
+import com.livenow.week1.controller.dto.MemberSaveRequestDto;
 import com.livenow.week1.service.MemberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,19 +20,19 @@ public class MemberController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void saveMember(@RequestParam String name, @RequestParam int age) {
-        memberService.save(name, age);
+    public void saveMember(@RequestBody MemberSaveRequestDto memberSaveRequestDto) {
+        memberService.save(memberSaveRequestDto.getName(), memberSaveRequestDto.getAge());
     }
 
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
-    public List<Member> findMembers() {
+    public List<MemberFindResponseDto> findMembers() {
         return memberService.findAll();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Member findMember(@PathVariable Long id) {
+    public MemberFindResponseDto findMember(@PathVariable Long id) {
         return memberService.findById(id);
     }
 

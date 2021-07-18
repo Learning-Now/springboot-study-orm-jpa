@@ -1,11 +1,13 @@
 package com.livenow.week1.service;
 
+import com.livenow.week1.controller.dto.MemberFindResponseDto;
 import com.livenow.week1.domain.Member;
 import com.livenow.week1.domain.MemberRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MemberService {
@@ -24,12 +26,15 @@ public class MemberService {
         memberRepository.save(member);
     }
 
-    public List<Member> findAll() {
-        return memberRepository.findAll();
+    public List<MemberFindResponseDto> findAll() {
+        return memberRepository.findAll()
+                .stream()
+                .map(MemberFindResponseDto::new)
+                .collect(Collectors.toList());
     }
 
-    public Member findById(Long id) {
-        return memberRepository.findById(id);
+    public MemberFindResponseDto findById(Long id) {
+        return new MemberFindResponseDto(memberRepository.findById(id));
     }
 
     @Transactional
