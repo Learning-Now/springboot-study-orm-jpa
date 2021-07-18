@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Entity
 public class Member {
 
-    @Id()
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "member_id")
     private Long id;
