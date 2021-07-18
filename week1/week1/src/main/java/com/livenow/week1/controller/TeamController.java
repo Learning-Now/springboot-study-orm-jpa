@@ -31,6 +31,6 @@ public class TeamController {
     @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
     public void deleteMember(@RequestBody MemberDeleteRequestDto memberDeleteRequestDto) {
-        teamService.deleteMember(memberDeleteRequestDto.getTeamId(), memberDeleteRequestDto.getMemberId());
+        teamService.deleteMember(memberDeleteRequestDto.getMemberId());
     }
 }

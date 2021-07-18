@@ -30,16 +30,10 @@ public class TeamService {
         Team team = teamRepository.findById(teamId);
         Member member = memberRepository.findById(memberId);
         member.changeTeam(team);
-
-        team.addMember(member);
     }
 
-    @Transactional
-    public void deleteMember(Long teamId, Long memberId) {
-        Team team = teamRepository.findById(teamId);
+    public void deleteMember(Long memberId) {
         Member member = memberRepository.findById(memberId);
         member.deleteTeam();
-
-        team.deleteMember(member);
     }
 }

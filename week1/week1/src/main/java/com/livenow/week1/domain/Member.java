@@ -33,10 +33,13 @@ public class Member {
     }
 
     public void changeTeam(Team team) {
+        this.team.deleteMember(this);
+        team.addMember(this);
         this.team = team;
     }
 
     public void deleteTeam() {
+        team.deleteMember(this);
         this.team = null;
     }
 }
