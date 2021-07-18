@@ -10,8 +10,6 @@ import java.util.List;
 @Service
 public class MemberService {
 
-    private static Long AGE = 1L;
-
     private final MemberRepository memberRepository;
 
     public MemberService(MemberRepository memberRepository) {
@@ -20,7 +18,7 @@ public class MemberService {
 
     @Transactional
     public void save(String name, int age) {
-        Member member = new Member(AGE++, name, age);
+        Member member = new Member(name, age);
         memberRepository.save(member);
     }
 

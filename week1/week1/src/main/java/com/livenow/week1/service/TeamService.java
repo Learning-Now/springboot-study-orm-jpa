@@ -10,8 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class TeamService {
 
-    private static Long AGE = 1L;
-
     private final MemberRepository memberRepository;
     private final TeamRepository teamRepository;
 
@@ -22,7 +20,7 @@ public class TeamService {
 
     @Transactional
     public void save(String name) {
-        Team team = new Team(AGE++, name);
+        Team team = new Team(name);
         teamRepository.save(team);
     }
 
