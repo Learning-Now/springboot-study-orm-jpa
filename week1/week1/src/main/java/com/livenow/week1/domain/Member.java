@@ -21,7 +21,7 @@ public class Member {
     private String name;
     private int age;
 
-    public Member(String name, int age) {
+    protected Member(String name, int age) {
     }
 
     @Builder
