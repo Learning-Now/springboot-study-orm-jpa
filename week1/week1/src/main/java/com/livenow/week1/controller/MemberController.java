@@ -23,21 +23,21 @@ public class MemberController {
         memberService.save(name, age);
     }
 
-    @PostMapping("/find/all")
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<Member> findMembers() {
         return memberService.findAll();
     }
 
-    @PostMapping("/find")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Member findMember(@RequestParam Long id) {
+    public Member findMember(@PathVariable Long id) {
         return memberService.findById(id);
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/{id}}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteMember(@RequestParam Long id) {
+    public void deleteMember(@PathVariable Long id) {
         memberService.delete(id);
     }
 }
