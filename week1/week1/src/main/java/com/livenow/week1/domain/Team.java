@@ -1,5 +1,6 @@
 package com.livenow.week1.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -23,10 +24,7 @@ public class Team {
     protected Team() {
     }
 
-    public Team(String name) {
-        this(null, name);
-    }
-
+    @Builder
     public Team(Long id, String name) {
         this.id = id;
         this.name = name;

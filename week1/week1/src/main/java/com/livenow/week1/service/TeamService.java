@@ -19,7 +19,9 @@ public class TeamService {
     }
 
     public void save(String name) {
-        Team team = new Team(name);
+        Team team = Team.builder()
+                .name(name)
+                .build();
         teamRepository.save(team);
     }
 
