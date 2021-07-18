@@ -18,7 +18,6 @@ public class TeamService {
         this.teamRepository = teamRepository;
     }
 
-    @Transactional
     public void save(String name) {
         Team team = new Team(name);
         teamRepository.save(team);

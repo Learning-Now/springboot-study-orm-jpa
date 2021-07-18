@@ -16,7 +16,6 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    @Transactional
     public void save(String name, int age) {
         Member member = Member.builder()
                 .name(name)
@@ -25,12 +24,10 @@ public class MemberService {
         memberRepository.save(member);
     }
 
-    @Transactional
     public List<Member> findAll() {
         return memberRepository.findAll();
     }
 
-    @Transactional
     public Member findById(Long id) {
         return memberRepository.findById(id);
     }
