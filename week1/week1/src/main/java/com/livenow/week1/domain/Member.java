@@ -24,18 +24,6 @@ public class Member {
     public Member(String name, int age) {
     }
 
-//    public Member(String name, int age) {
-//        this(null, name, age, null);
-//    }
-//
-//    public Member(String name, int age, Team team) {
-//        this(null, name, age, team);
-//    }
-//
-//    public Member(Long id, String name, int age) {
-//        this(id, name, age, null);
-//    }
-
     @Builder
     public Member(Long id, String name, int age, Team team) {
         this.id = id;
