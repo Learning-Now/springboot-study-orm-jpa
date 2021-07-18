@@ -1,5 +1,6 @@
 package com.livenow.week1.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -13,28 +14,29 @@ public class Member {
     @Column(name = "member_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
     private Team team;
 
     private String name;
     private int age;
 
-    protected Member() {
-    }
-
     public Member(String name, int age) {
-        this(null, name, age, null);
     }
 
-    public Member(String name, int age, Team team) {
-        this(null, name, age, team);
-    }
+//    public Member(String name, int age) {
+//        this(null, name, age, null);
+//    }
+//
+//    public Member(String name, int age, Team team) {
+//        this(null, name, age, team);
+//    }
+//
+//    public Member(Long id, String name, int age) {
+//        this(id, name, age, null);
+//    }
 
-    public Member(Long id, String name, int age) {
-        this(id, name, age, null);
-    }
-
+    @Builder
     public Member(Long id, String name, int age, Team team) {
         this.id = id;
         this.name = name;
