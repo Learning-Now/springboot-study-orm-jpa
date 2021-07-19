@@ -10,6 +10,9 @@ public class MemberUpdateRequestDto {
     private int age;
     private Team team;
 
+    public MemberUpdateRequestDto() {
+
+    }
 
     public MemberUpdateRequestDto(Member member) {
         this.name = member.getName();

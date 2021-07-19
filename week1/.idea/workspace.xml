@@ -22,9 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="refactor : 불필요한 코드 삭제">
+    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="refactor : MemberController url 행동 표현 삭제">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberUpdateRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberUpdateRequestDto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +111,7 @@
       <workItem from="1626425169534" duration="3798000" />
       <workItem from="1626430109879" duration="17000" />
       <workItem from="1626430976798" duration="1423000" />
-      <workItem from="1626608352592" duration="1762000" />
+      <workItem from="1626608352592" duration="1857000" />
     </task>
     <task id="LOCAL-00001" summary="feat : MemberResponseDto 구현">
       <created>1626425579298</created>
@@ -175,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626608634536</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="refactor : MemberController url 행동 표현 삭제">
+      <created>1626668671649</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1626668671649</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +211,8 @@
     <MESSAGE value="feat : MemberController save 오타 수정" />
     <MESSAGE value="refactor : Team객체 충돌 코드 해결" />
     <MESSAGE value="refactor : 불필요한 코드 삭제" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor : 불필요한 코드 삭제" />
+    <MESSAGE value="refactor : MemberController url 행동 표현 삭제" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor : MemberController url 행동 표현 삭제" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2272" y="405" key="#Assign_Data_Sources" timestamp="1626425933395">
@@ -254,9 +263,10 @@
     </state>
     <state width="1355" height="209" key="GridCell.Tab.1.right/0.23.1400.877@0.23.1400.877" timestamp="1626052753892" />
     <state width="1355" height="209" key="GridCell.Tab.1.right/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626429405215" />
-    <state x="1965" y="247" key="Vcs.Push.Dialog.v2" timestamp="1626608644246">
-      <screen x="1440" y="23" width="1882" height="1057" />
+    <state x="391" y="209" key="Vcs.Push.Dialog.v2" timestamp="1626668675996">
+      <screen x="0" y="23" width="1402" height="877" />
     </state>
+    <state x="391" y="209" key="Vcs.Push.Dialog.v2/0.23.1402.877@0.23.1402.877" timestamp="1626668675996" />
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1882.1057@1440.23.1882.1057" timestamp="1626608644246" />
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626435033620" />
     <state x="2178" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1626425863625">

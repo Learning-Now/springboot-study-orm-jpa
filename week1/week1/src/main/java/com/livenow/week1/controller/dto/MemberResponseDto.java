@@ -9,6 +9,9 @@ public class MemberResponseDto {
     private int age;
     private Team team;
 
+    public MemberResponseDto() {
+
+    }
 
     public MemberResponseDto(Member member) {
         this.id = member.getId();
