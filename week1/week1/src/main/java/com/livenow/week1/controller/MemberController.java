@@ -1,6 +1,7 @@
 package com.livenow.week1.controller;
 
 import com.livenow.week1.controller.dto.MemberResponseDto;
+import com.livenow.week1.controller.dto.MemberSaveResponseDto;
 import com.livenow.week1.controller.dto.MemberUpdateRequestDto;
 
 import com.livenow.week1.service.MemberService;
@@ -19,8 +20,8 @@ public class MemberController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void saveMember(@RequestParam String name, @RequestParam int age) {
-        memberService.save(name, age);
+    public void saveMember(@RequestParam MemberSaveResponseDto responseDto) {
+        memberService.save(responseDto);
     }
 
     @GetMapping("/{id}")

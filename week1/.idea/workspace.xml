@@ -22,8 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="refactor : MemberRequestDto 도메인 의존성 제거">
+    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="refactor : 올바른 Http메소드 매핑 post-&gt;delete">
+      <change afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberSaveResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week1/src/test/java/com/livenow/week1/service/MemberServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/domain/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/domain/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/service/MemberService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +57,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -78,17 +86,56 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.livenow.week1.service" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.livenow.week1.controller.dto" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.MemberServiceTest.저장">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberServiceTest.저장" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/week1" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.livenow.week1.service.MemberServiceTest.저장&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Week1Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="week1.week1.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.livenow.week1.Week1Application" />
@@ -96,6 +143,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.MemberServiceTest.저장" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -109,7 +161,7 @@
       <workItem from="1626425169534" duration="3798000" />
       <workItem from="1626430109879" duration="17000" />
       <workItem from="1626430976798" duration="1423000" />
-      <workItem from="1626608352592" duration="2152000" />
+      <workItem from="1626608352592" duration="3741000" />
     </task>
     <task id="LOCAL-00001" summary="feat : MemberResponseDto 구현">
       <created>1626425579298</created>
@@ -195,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626668994105</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="refactor : 올바른 Http메소드 매핑 post-&gt;delete">
+      <created>1626669052655</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1626669052655</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +285,8 @@
     <MESSAGE value="refactor : MemberController url 행동 표현 삭제" />
     <MESSAGE value="refactor : Dto 기본생성자 생성" />
     <MESSAGE value="refactor : MemberRequestDto 도메인 의존성 제거" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor : MemberRequestDto 도메인 의존성 제거" />
+    <MESSAGE value="refactor : 올바른 Http메소드 매핑 post-&gt;delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor : 올바른 Http메소드 매핑 post-&gt;delete" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2272" y="405" key="#Assign_Data_Sources" timestamp="1626425933395">
@@ -237,26 +297,26 @@
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state x="2178" y="230" key="#com.intellij.ide.util.MemberChooser/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626425895220" />
-    <state width="1355" height="209" key="GridCell.Tab.0.bottom" timestamp="1626429405212">
+    <state width="1840" height="290" key="GridCell.Tab.0.bottom" timestamp="1626694047869">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state width="1355" height="209" key="GridCell.Tab.0.bottom/0.23.1400.877@0.23.1400.877" timestamp="1626052753892" />
-    <state width="1355" height="209" key="GridCell.Tab.0.bottom/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626429405212" />
-    <state width="1355" height="209" key="GridCell.Tab.0.center" timestamp="1626429405210">
+    <state width="1840" height="290" key="GridCell.Tab.0.bottom/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626694047869" />
+    <state width="1840" height="290" key="GridCell.Tab.0.center" timestamp="1626694047867">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state width="1355" height="209" key="GridCell.Tab.0.center/0.23.1400.877@0.23.1400.877" timestamp="1626052753891" />
-    <state width="1355" height="209" key="GridCell.Tab.0.center/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626429405210" />
-    <state width="1355" height="209" key="GridCell.Tab.0.left" timestamp="1626429405209">
+    <state width="1840" height="290" key="GridCell.Tab.0.center/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626694047867" />
+    <state width="1840" height="290" key="GridCell.Tab.0.left" timestamp="1626694047866">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state width="1355" height="209" key="GridCell.Tab.0.left/0.23.1400.877@0.23.1400.877" timestamp="1626052753890" />
-    <state width="1355" height="209" key="GridCell.Tab.0.left/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626429405209" />
-    <state width="1355" height="209" key="GridCell.Tab.0.right" timestamp="1626429405211">
+    <state width="1840" height="290" key="GridCell.Tab.0.left/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626694047866" />
+    <state width="1840" height="290" key="GridCell.Tab.0.right" timestamp="1626694047868">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state width="1355" height="209" key="GridCell.Tab.0.right/0.23.1400.877@0.23.1400.877" timestamp="1626052753891" />
-    <state width="1355" height="209" key="GridCell.Tab.0.right/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626429405211" />
+    <state width="1840" height="290" key="GridCell.Tab.0.right/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626694047868" />
     <state width="1355" height="209" key="GridCell.Tab.1.bottom" timestamp="1626429405216">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
@@ -277,15 +337,27 @@
     </state>
     <state width="1355" height="209" key="GridCell.Tab.1.right/0.23.1400.877@0.23.1400.877" timestamp="1626052753892" />
     <state width="1355" height="209" key="GridCell.Tab.1.right/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626429405215" />
-    <state x="391" y="209" key="Vcs.Push.Dialog.v2" timestamp="1626668996837">
+    <state x="1890" y="190" key="SettingsEditor" timestamp="1626694046580">
+      <screen x="1440" y="23" width="1882" height="1057" />
+    </state>
+    <state x="1890" y="190" key="SettingsEditor/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626694046580" />
+    <state x="391" y="209" key="Vcs.Push.Dialog.v2" timestamp="1626669055580">
       <screen x="0" y="23" width="1402" height="877" />
     </state>
-    <state x="391" y="209" key="Vcs.Push.Dialog.v2/0.23.1402.877@0.23.1402.877" timestamp="1626668996837" />
+    <state x="391" y="209" key="Vcs.Push.Dialog.v2/0.23.1402.877@0.23.1402.877" timestamp="1626669055580" />
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1882.1057@1440.23.1882.1057" timestamp="1626608644246" />
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626435033620" />
     <state x="2178" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1626425863625">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state x="2178" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626425863625" />
+    <state x="2149" y="344" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1626693161509">
+      <screen x="1440" y="23" width="1882" height="1057" />
+    </state>
+    <state x="2149" y="344" key="com.intellij.testIntegration.createTest.CreateTestDialog/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626693161509" />
+    <state x="2046" y="258" width="670" height="676" key="search.everywhere.popup" timestamp="1626692935010">
+      <screen x="1440" y="23" width="1882" height="1057" />
+    </state>
+    <state x="2046" y="258" width="670" height="676" key="search.everywhere.popup/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626692935010" />
   </component>
 </project>

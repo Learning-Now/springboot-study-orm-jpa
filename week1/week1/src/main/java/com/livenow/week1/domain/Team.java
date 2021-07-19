@@ -32,7 +32,9 @@ public class Team {
     }
 
     public void removeMember(Member member) {
+        member.removeTeam();
         this.members.remove(member);
+
     }
 
 }

@@ -1,9 +1,6 @@
 package com.livenow.week1.domain;
 
-
-import com.livenow.week1.controller.dto.MemberUpdateRequestDto;
 import lombok.Builder;
-import lombok.Generated;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -52,5 +49,11 @@ public class Member {
         }
         this.team = team;
         team.addMember(this);
+    }
+
+    public void removeTeam() {
+        if (this.team != null) {
+            this.team = null;
+        }
     }
 }
