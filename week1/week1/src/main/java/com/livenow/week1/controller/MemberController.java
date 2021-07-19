@@ -34,7 +34,7 @@ public class MemberController {
         return memberService.update(id, requestDto);
     }
 
-    @GetMapping("/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteMember(@PathVariable Long id) {
         memberService.delete(id);
