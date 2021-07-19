@@ -10,9 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class MemberService {
-
-    private static Long AGE = 1L;
-
     private final MemberRepository memberRepository;
 
     public MemberService(MemberRepository memberRepository) {
@@ -37,7 +34,11 @@ public class MemberService {
     @Transactional
     public Long update(Long id, MemberUpdateRequestDto requestDto) {
         Member member = memberRepository.findById(id);
-        return member.update(requestDto);
+        return member.update(Member.builder()
+                .age(requestDto.getAge())
+                .name(requestDto.getName())
+                .team(requestDto.getTeam())
+                .build());
     }
 
     @Transactional

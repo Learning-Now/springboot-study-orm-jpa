@@ -34,10 +34,10 @@ public class Member {
         this.age = age;
         this.team = team;
     }
-    public Long update(MemberUpdateRequestDto requestDto) {
-        this.age = requestDto.getAge();
-        this.name = requestDto.getName();
-        this.team = requestDto.getTeam();
+    public Long update(Member member) {
+        this.age = member.age;
+        this.name = member.name;
+        setTeam(member.team);
         return this.id;
     }
 
