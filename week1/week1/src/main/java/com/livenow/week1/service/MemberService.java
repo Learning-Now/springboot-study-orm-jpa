@@ -1,7 +1,7 @@
 package com.livenow.week1.service;
 
 import com.livenow.week1.controller.dto.MemberResponseDto;
-import com.livenow.week1.controller.dto.MemberSaveResponseDto;
+import com.livenow.week1.controller.dto.MemberSaveRequestDto;
 import com.livenow.week1.controller.dto.MemberUpdateRequestDto;
 import com.livenow.week1.domain.Member;
 import com.livenow.week1.domain.MemberRepository;
@@ -18,7 +18,7 @@ public class MemberService {
     }
 
     @Transactional
-    public void save(MemberSaveResponseDto responseDto) {
+    public void save(MemberSaveRequestDto responseDto) {
         Member member = Member.builder()
                 .name(responseDto.getName())
                 .age(responseDto.getAge())

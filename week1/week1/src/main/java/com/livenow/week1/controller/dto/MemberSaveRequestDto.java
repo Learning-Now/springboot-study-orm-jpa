@@ -5,17 +5,17 @@ import com.livenow.week1.domain.Team;
 import lombok.Data;
 
 @Data
-public class MemberSaveResponseDto {
+public class MemberSaveRequestDto {
     private Long id;
     private String name;
     private int age;
     private Team team;
 
-    public MemberSaveResponseDto() {
+    public MemberSaveRequestDto() {
 
     }
 
-    public MemberSaveResponseDto(Member member) {
+    public MemberSaveRequestDto(Member member) {
         this.id = member.getId();
         this.name = member.getName();
         this.age = member.getAge();
