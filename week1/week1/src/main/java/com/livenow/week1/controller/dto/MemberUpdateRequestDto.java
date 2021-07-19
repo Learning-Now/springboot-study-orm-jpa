@@ -16,10 +16,10 @@ public class MemberUpdateRequestDto {
     }
 
     @Builder
-    public MemberUpdateRequestDto(Member member) {
-        this.name = member.getName();
-        this.age = member.getAge();
-        this.team = member.getTeam();
+    public MemberUpdateRequestDto(String name, int age, Team team) {
+        this.name = name;
+        this.age = age;
+        this.team = team;
     }
 
 }
