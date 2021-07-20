@@ -69,5 +69,24 @@ class MemberServiceTest {
         System.out.println(findMember.getTeam().getName());
     }
 
+    @Test
+    void 삭제() {
+        //given
+        Member member = Member.builder()
+                .name("다훈이형")
+                .age(30)
+                .team(new Team("호두마루"))
+                .build();
+        MemberSaveRequestDto memberSaveResponseDto = new MemberSaveRequestDto(member);
+        MemberService memberService = new MemberService(memberRepository);
+        //when
+        memberService.save(memberSaveResponseDto);
+
+        memberService.delete(1L);
+        Member member1 = memberRepository.findById(1L);
+        //then
+        Assertions.assertThat(member1).isNull();
+    }
+
 
 }
