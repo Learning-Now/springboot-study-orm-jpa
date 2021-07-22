@@ -22,9 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="Test : MemberService update 테스트">
+    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="Test : MemberService delete 테스트">
+      <change afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/responsemessage/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/responsemessage/StatusEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/src/test/java/com/livenow/week1/service/MemberServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/test/java/com/livenow/week1/service/MemberServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +55,7 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -97,23 +100,11 @@
       <recent name="" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.livenow.week1.controller.responsemessage" />
       <recent name="com.livenow.week1.controller.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MemberServiceTest.삭제">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Gradle.MemberServiceTest.저장">
     <configuration name="MemberServiceTest.저장" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -174,7 +165,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MemberServiceTest.삭제" />
         <item itemvalue="JUnit.MemberServiceTest.수정" />
         <item itemvalue="Gradle.MemberServiceTest.저장" />
       </list>
@@ -193,7 +183,8 @@
       <workItem from="1626430109879" duration="17000" />
       <workItem from="1626430976798" duration="1423000" />
       <workItem from="1626608352592" duration="5500000" />
-      <workItem from="1626780790932" duration="254000" />
+      <workItem from="1626780790932" duration="1546000" />
+      <workItem from="1626954166186" duration="909000" />
     </task>
     <task id="LOCAL-00001" summary="feat : MemberResponseDto 구현">
       <created>1626425579298</created>
@@ -307,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626695776637</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Test : MemberService delete 테스트">
+      <created>1626781144404</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1626781144404</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,40 +340,45 @@
     <MESSAGE value="test : MemberService save 테스트코드 작성" />
     <MESSAGE value="refactor : post 매핑 requestParam -&gt; requestBody, saveResponse -&gt; saveRequest" />
     <MESSAGE value="Test : MemberService update 테스트" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test : MemberService update 테스트" />
+    <MESSAGE value="Test : MemberService delete 테스트" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test : MemberService delete 테스트" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2272" y="405" key="#Assign_Data_Sources" timestamp="1626425933395">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state x="2272" y="405" key="#Assign_Data_Sources/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626425933395" />
-    <state x="2178" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1626425895220">
+    <state x="2178" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1626954763974">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
-    <state x="2178" y="230" key="#com.intellij.ide.util.MemberChooser/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626425895220" />
+    <state x="2178" y="230" key="#com.intellij.ide.util.MemberChooser/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626954763974" />
     <state x="1998" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1626694945582">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state x="1998" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626694945582" />
-    <state width="1840" height="290" key="GridCell.Tab.0.bottom" timestamp="1626695848158">
-      <screen x="1440" y="23" width="1882" height="1057" />
+    <state width="1840" height="290" key="GridCell.Tab.0.bottom" timestamp="1626782517412">
+      <screen x="1440" y="23" width="1883" height="1057" />
     </state>
     <state width="1355" height="209" key="GridCell.Tab.0.bottom/0.23.1400.877@0.23.1400.877" timestamp="1626052753892" />
+    <state width="1840" height="290" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.23.1883.1057@1440.23.1883.1057" timestamp="1626782517412" />
     <state width="1840" height="290" key="GridCell.Tab.0.bottom/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626695848158" />
-    <state width="1840" height="290" key="GridCell.Tab.0.center" timestamp="1626695848156">
-      <screen x="1440" y="23" width="1882" height="1057" />
+    <state width="1840" height="290" key="GridCell.Tab.0.center" timestamp="1626782517411">
+      <screen x="1440" y="23" width="1883" height="1057" />
     </state>
     <state width="1355" height="209" key="GridCell.Tab.0.center/0.23.1400.877@0.23.1400.877" timestamp="1626052753891" />
+    <state width="1840" height="290" key="GridCell.Tab.0.center/0.23.1440.877/1440.23.1883.1057@1440.23.1883.1057" timestamp="1626782517411" />
     <state width="1840" height="290" key="GridCell.Tab.0.center/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626695848156" />
-    <state width="1840" height="290" key="GridCell.Tab.0.left" timestamp="1626695848155">
-      <screen x="1440" y="23" width="1882" height="1057" />
+    <state width="1840" height="290" key="GridCell.Tab.0.left" timestamp="1626782517410">
+      <screen x="1440" y="23" width="1883" height="1057" />
     </state>
     <state width="1355" height="209" key="GridCell.Tab.0.left/0.23.1400.877@0.23.1400.877" timestamp="1626052753890" />
+    <state width="1840" height="290" key="GridCell.Tab.0.left/0.23.1440.877/1440.23.1883.1057@1440.23.1883.1057" timestamp="1626782517410" />
     <state width="1840" height="290" key="GridCell.Tab.0.left/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626695848155" />
-    <state width="1840" height="290" key="GridCell.Tab.0.right" timestamp="1626695848157">
-      <screen x="1440" y="23" width="1882" height="1057" />
+    <state width="1840" height="290" key="GridCell.Tab.0.right" timestamp="1626782517412">
+      <screen x="1440" y="23" width="1883" height="1057" />
     </state>
     <state width="1355" height="209" key="GridCell.Tab.0.right/0.23.1400.877@0.23.1400.877" timestamp="1626052753891" />
+    <state width="1840" height="290" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1883.1057@1440.23.1883.1057" timestamp="1626782517412" />
     <state width="1840" height="290" key="GridCell.Tab.0.right/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626695848157" />
     <state width="1355" height="209" key="GridCell.Tab.1.bottom" timestamp="1626429405216">
       <screen x="1440" y="23" width="1882" height="1057" />
@@ -401,11 +404,12 @@
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state x="1890" y="190" key="SettingsEditor/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626694046580" />
-    <state x="1965" y="247" key="Vcs.Push.Dialog.v2" timestamp="1626695782274">
-      <screen x="1440" y="23" width="1882" height="1057" />
+    <state x="1965" y="247" key="Vcs.Push.Dialog.v2" timestamp="1626781150311">
+      <screen x="1440" y="23" width="1883" height="1057" />
     </state>
     <state x="391" y="209" key="Vcs.Push.Dialog.v2/0.23.1402.877@0.23.1402.877" timestamp="1626669055580" />
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1882.1057@1440.23.1882.1057" timestamp="1626608644246" />
+    <state x="1965" y="247" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1883.1057@1440.23.1883.1057" timestamp="1626781150311" />
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626695782274" />
     <state x="2178" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1626425863625">
       <screen x="1440" y="23" width="1882" height="1057" />
@@ -415,6 +419,10 @@
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state x="2149" y="344" key="com.intellij.testIntegration.createTest.CreateTestDialog/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626693161509" />
+    <state x="2119" y="307" key="extract.method.dialog" timestamp="1626955081683">
+      <screen x="1440" y="23" width="1882" height="1057" />
+    </state>
+    <state x="2119" y="307" key="extract.method.dialog/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626955081683" />
     <state x="2046" y="258" width="670" height="676" key="search.everywhere.popup" timestamp="1626692935010">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
