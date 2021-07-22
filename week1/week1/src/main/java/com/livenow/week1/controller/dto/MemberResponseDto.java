@@ -10,7 +10,6 @@ public class MemberResponseDto {
     private Team team;
 
     public MemberResponseDto() {
-
     }
 
     public MemberResponseDto(Member member) {

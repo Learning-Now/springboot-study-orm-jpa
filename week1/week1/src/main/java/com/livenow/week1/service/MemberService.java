@@ -17,7 +17,6 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    @Transactional
     public void save(MemberSaveRequestDto responseDto) {
         Member member = Member.builder()
                 .name(responseDto.getName())
@@ -27,7 +26,6 @@ public class MemberService {
         memberRepository.save(member);
     }
 
-    @Transactional
     public MemberResponseDto findById(Long id) {
         Member member = memberRepository.findById(id);
         return new MemberResponseDto(member);

@@ -12,7 +12,6 @@ public class MemberUpdateRequestDto {
     private Team team;
 
     public MemberUpdateRequestDto() {
-
     }
 
     @Builder

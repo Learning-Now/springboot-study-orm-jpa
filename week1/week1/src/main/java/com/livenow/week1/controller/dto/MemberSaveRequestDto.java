@@ -12,7 +12,6 @@ public class MemberSaveRequestDto {
     private Team team;
 
     public MemberSaveRequestDto() {
-
     }
 
     public MemberSaveRequestDto(Member member) {

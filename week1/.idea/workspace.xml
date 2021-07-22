@@ -22,11 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="Test : MemberService delete 테스트">
-      <change afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/responsemessage/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/responsemessage/StatusEnum.java" afterDir="false" />
+    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="refactor : responseEntity를 통해 response값 재정의">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberSaveRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberSaveRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberUpdateRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberUpdateRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/service/MemberService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +185,8 @@
       <workItem from="1626430976798" duration="1423000" />
       <workItem from="1626608352592" duration="5500000" />
       <workItem from="1626780790932" duration="1546000" />
-      <workItem from="1626954166186" duration="909000" />
+      <workItem from="1626954166186" duration="1016000" />
+      <workItem from="1626955284114" duration="71000" />
     </task>
     <task id="LOCAL-00001" summary="feat : MemberResponseDto 구현">
       <created>1626425579298</created>
@@ -305,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626781144404</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="refactor : responseEntity를 통해 response값 재정의">
+      <created>1626955185489</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1626955185489</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +350,8 @@
     <MESSAGE value="refactor : post 매핑 requestParam -&gt; requestBody, saveResponse -&gt; saveRequest" />
     <MESSAGE value="Test : MemberService update 테스트" />
     <MESSAGE value="Test : MemberService delete 테스트" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test : MemberService delete 테스트" />
+    <MESSAGE value="refactor : responseEntity를 통해 response값 재정의" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor : responseEntity를 통해 response값 재정의" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2272" y="405" key="#Assign_Data_Sources" timestamp="1626425933395">
@@ -404,13 +414,13 @@
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state x="1890" y="190" key="SettingsEditor/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626694046580" />
-    <state x="1965" y="247" key="Vcs.Push.Dialog.v2" timestamp="1626781150311">
-      <screen x="1440" y="23" width="1883" height="1057" />
+    <state x="1965" y="247" key="Vcs.Push.Dialog.v2" timestamp="1626955192401">
+      <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state x="391" y="209" key="Vcs.Push.Dialog.v2/0.23.1402.877@0.23.1402.877" timestamp="1626669055580" />
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1882.1057@1440.23.1882.1057" timestamp="1626608644246" />
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1883.1057@1440.23.1883.1057" timestamp="1626781150311" />
-    <state x="1965" y="247" key="Vcs.Push.Dialog.v2/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626695782274" />
+    <state x="1965" y="247" key="Vcs.Push.Dialog.v2/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626955192401" />
     <state x="2178" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1626425863625">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
@@ -419,10 +429,10 @@
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state x="2149" y="344" key="com.intellij.testIntegration.createTest.CreateTestDialog/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626693161509" />
-    <state x="2119" y="307" key="extract.method.dialog" timestamp="1626955081683">
+    <state x="2119" y="307" key="extract.method.dialog" timestamp="1626955149175">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
-    <state x="2119" y="307" key="extract.method.dialog/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626955081683" />
+    <state x="2119" y="307" key="extract.method.dialog/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626955149175" />
     <state x="2046" y="258" width="670" height="676" key="search.everywhere.popup" timestamp="1626692935010">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
