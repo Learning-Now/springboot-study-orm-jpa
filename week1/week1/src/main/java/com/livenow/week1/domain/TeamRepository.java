@@ -13,8 +13,9 @@ public class TeamRepository {
         this.em = em;
     }
 
-    public void save(Team team) {
+    public Team save(Team team) {
         em.persist(team);
+        return team;
     }
 
     public Team findById(Long id) {

@@ -1,7 +1,9 @@
 package com.livenow.week1.controller;
 
 import com.livenow.week1.controller.dto.MemberAddRequestDto;
-import com.livenow.week1.controller.dto.MemberDeleteRequestDto;
+import com.livenow.week1.controller.dto.MemberAddResponseDto;
+import com.livenow.week1.controller.dto.MemberDeleteResponseDto;
+import com.livenow.week1.controller.dto.TeamSaveResponseDto;
 import com.livenow.week1.service.TeamService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,19 +20,19 @@ public class TeamController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void save(@RequestParam String name) {
-        teamService.save(name);
+    public TeamSaveResponseDto save(@RequestParam String name) {
+        return teamService.save(name);
     }
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public void addMember(@RequestBody MemberAddRequestDto memberAddRequestDto) {
-        teamService.addMember(memberAddRequestDto.getTeamId(), memberAddRequestDto.getMemberId());
+    public MemberAddResponseDto addMember(@RequestBody MemberAddRequestDto memberAddRequestDto) {
+        return teamService.addMember(memberAddRequestDto.getTeamId(), memberAddRequestDto.getMemberId());
     }
 
     @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
-    public void deleteMember(@RequestBody MemberDeleteRequestDto memberDeleteRequestDto) {
-        teamService.deleteMember(memberDeleteRequestDto.getMemberId());
+    public MemberDeleteResponseDto removeMember(@PathVariable Long id) {
+        return teamService.deleteMember(id);
     }
 }

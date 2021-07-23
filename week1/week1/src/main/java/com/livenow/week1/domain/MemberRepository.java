@@ -14,8 +14,9 @@ public class MemberRepository {
         this.em = em;
     }
 
-    public void save(Member member) {
+    public Member save(Member member) {
         em.persist(member);
+        return member;
     }
 
     public Member findById(Long id) {
@@ -26,8 +27,9 @@ public class MemberRepository {
         return em.createQuery("select m from Member m", Member.class).getResultList();
     }
 
-    public void delete(Member member) {
+    public Member delete(Member member) {
         em.remove(member);
+        return member;
     }
 }
 

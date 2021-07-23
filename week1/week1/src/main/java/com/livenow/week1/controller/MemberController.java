@@ -1,7 +1,9 @@
 package com.livenow.week1.controller;
 
+import com.livenow.week1.controller.dto.MemberDeleteResponseDto;
 import com.livenow.week1.controller.dto.MemberFindResponseDto;
 import com.livenow.week1.controller.dto.MemberSaveRequestDto;
+import com.livenow.week1.controller.dto.MemberSaveResponseDto;
 import com.livenow.week1.service.MemberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +22,8 @@ public class MemberController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void saveMember(@RequestBody MemberSaveRequestDto memberSaveRequestDto) {
-        memberService.save(memberSaveRequestDto.getName(), memberSaveRequestDto.getAge());
+    public MemberSaveResponseDto saveMember(@RequestBody MemberSaveRequestDto memberSaveRequestDto) {
+        return memberService.save(memberSaveRequestDto.getName(), memberSaveRequestDto.getAge());
     }
 
     @GetMapping("/all")
@@ -38,7 +40,7 @@ public class MemberController {
 
     @DeleteMapping("/{id}}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteMember(@PathVariable Long id) {
-        memberService.delete(id);
+    public MemberDeleteResponseDto deleteMember(@PathVariable Long id) {
+        return memberService.delete(id);
     }
 }
