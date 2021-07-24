@@ -10,8 +10,8 @@ public class MemberAddRequestDto {
     private Long teamId;
     private Long memberId;
 
-    public MemberAddRequestDto(Team teamEntity, Member memberEntity) {
-        this.teamId = teamEntity.getId();
-        this.memberId = memberEntity.getId();
+    public MemberAddRequestDto(Team team, Member member) {
+        this.teamId = team.getId();
+        this.memberId = member.getId();
     }
 }
