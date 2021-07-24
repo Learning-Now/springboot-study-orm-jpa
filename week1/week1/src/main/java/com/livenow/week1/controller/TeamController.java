@@ -27,7 +27,7 @@ public class TeamController {
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public MemberAddResponseDto addMember(@RequestBody MemberAddRequestDto memberAddRequestDto) {
-        return teamService.addMember(memberAddRequestDto.getTeamId(), memberAddRequestDto.getMemberId());
+        return teamService.addMember(memberAddRequestDto);
     }
 
     @DeleteMapping

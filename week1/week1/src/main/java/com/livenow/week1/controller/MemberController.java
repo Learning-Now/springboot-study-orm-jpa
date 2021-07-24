@@ -23,7 +23,7 @@ public class MemberController {
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public MemberSaveResponseDto saveMember(@RequestBody MemberSaveRequestDto memberSaveRequestDto) {
-        return memberService.save(memberSaveRequestDto.getName(), memberSaveRequestDto.getAge());
+        return memberService.save(memberSaveRequestDto);
     }
 
     @GetMapping("/all")

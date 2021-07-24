@@ -2,6 +2,7 @@ package com.livenow.week1.service;
 
 import com.livenow.week1.controller.dto.MemberDeleteResponseDto;
 import com.livenow.week1.controller.dto.MemberFindResponseDto;
+import com.livenow.week1.controller.dto.MemberSaveRequestDto;
 import com.livenow.week1.controller.dto.MemberSaveResponseDto;
 import com.livenow.week1.domain.Member;
 import com.livenow.week1.domain.MemberRepository;
@@ -20,10 +21,10 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    public MemberSaveResponseDto save(String name, int age) {
+    public MemberSaveResponseDto save(MemberSaveRequestDto memberSaveRequestDto) {
         Member member = Member.builder()
-                .name(name)
-                .age(age)
+                .name(memberSaveRequestDto.getName())
+                .age(memberSaveRequestDto.getAge())
                 .build();
         return new MemberSaveResponseDto(memberRepository.save(member));
     }

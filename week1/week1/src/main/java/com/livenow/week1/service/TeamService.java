@@ -1,5 +1,6 @@
 package com.livenow.week1.service;
 
+import com.livenow.week1.controller.dto.MemberAddRequestDto;
 import com.livenow.week1.controller.dto.MemberAddResponseDto;
 import com.livenow.week1.controller.dto.MemberDeleteResponseDto;
 import com.livenow.week1.controller.dto.TeamSaveResponseDto;
@@ -29,9 +30,9 @@ public class TeamService {
     }
 
     @Transactional
-    public MemberAddResponseDto addMember(Long teamId, Long memberId) {
-        Team team = teamRepository.findById(teamId);
-        Member member = memberRepository.findById(memberId);
+    public MemberAddResponseDto addMember(MemberAddRequestDto memberAddRequestDto) {
+        Team team = teamRepository.findById(memberAddRequestDto.getTeamId());
+        Member member = memberRepository.findById(memberAddRequestDto.getMemberId());
         member.changeTeam(team);
         return new MemberAddResponseDto(team, member);
     }
