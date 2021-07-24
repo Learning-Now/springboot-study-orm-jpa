@@ -26,7 +26,7 @@ public class MemberController {
         return memberService.save(memberSaveRequestDto);
     }
 
-    @GetMapping("/all")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<MemberFindResponseDto> findMembers() {
         return memberService.findAll();
