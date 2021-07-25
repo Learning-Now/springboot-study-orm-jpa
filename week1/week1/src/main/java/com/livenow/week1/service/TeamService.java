@@ -1,37 +1,27 @@
 package com.livenow.week1.service;
 
-import com.livenow.week1.domain.Member;
+import com.livenow.week1.controller.team.dto.TeamSaveRequestDto;
+import com.livenow.week1.controller.team.dto.TeamSaveResponseDto;
 import com.livenow.week1.domain.MemberRepository;
 import com.livenow.week1.domain.Team;
 import com.livenow.week1.domain.TeamRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
+@RequiredArgsConstructor
 public class TeamService {
-
-    private static Long AGE = 1L;
 
     private final MemberRepository memberRepository;
     private final TeamRepository teamRepository;
 
-    public TeamService(MemberRepository memberRepository, TeamRepository teamRepository) {
-        this.memberRepository = memberRepository;
-        this.teamRepository = teamRepository;
-    }
-
-    @Transactional
-    public void save(String name) {
-        Team team = new Team(AGE++, name);
-        teamRepository.save(team);
-    }
-
-    @Transactional
-    public void addMember(Long teamId, Long memberId) {
-        Team team = teamRepository.findById(teamId);
-        Member member = memberRepository.findById(memberId);
-        member.changeTeam(team);
-
-        team.getMembers().add(member);
+    public TeamSaveResponseDto save(TeamSaveRequestDto requestDto) {
+        Team team = Team.builder()
+                .name(requestDto.getName())
+                .build();
+        Team saveTeam = teamRepository.save(team);
+        return new TeamSaveResponseDto(saveTeam);
     }
 }

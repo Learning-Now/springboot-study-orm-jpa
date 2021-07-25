@@ -3,6 +3,7 @@ package com.livenow.week1.domain;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 @Repository
 public class TeamRepository {
@@ -13,8 +14,9 @@ public class TeamRepository {
         this.em = em;
     }
 
-    public void save(Team team) {
+    public Team save(Team team) {
         em.persist(team);
+        return team;
     }
 
     public Team findById(Long id) {
