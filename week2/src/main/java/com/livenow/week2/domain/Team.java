@@ -20,13 +20,17 @@ public class Team {
     private Long id;
     private String name;
 
+    @Embedded
+    private Address address;
+
     @OneToMany(mappedBy = "team", cascade = CascadeType.PERSIST)
-    private final List<Member> members = new ArrayList<>();
+    private List<Member> members = new ArrayList<>();
 
     @Builder
-    public Team(Long id, String name) {
+    public Team(Long id, String name, Address address) {
         this.id = id;
         this.name = name;
+        this.address = address;
     }
 
     public void addMember(Member member) {
