@@ -1,11 +1,17 @@
 package com.livenow.week1.controller;
 
+import com.livenow.week1.DTO.MemberDeleteResponseDto;
+import com.livenow.week1.DTO.MemberFindeResponseDto;
+import com.livenow.week1.DTO.MemberSaveRequestDto;
 import com.livenow.week1.domain.Member;
 import com.livenow.week1.service.MemberService;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -16,6 +22,8 @@ import java.util.List;
 public class MemberController {
 
     private final MemberService memberService;
+    private Object MemberService;
+    private Object MemberSaveRequestDto;
 
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
@@ -40,9 +48,37 @@ public class MemberController {
         model.addAttribute("member",members);
         return "/member";
     }
-    @RequestMapping(value="delete", method=RequestMethod.POST)
-    String edit(@RequestParam Integer id){
-        MemberService.delete(id);
-        return "/member";
+//    @RequestMapping(value="delete", method=RequestMethod.POST)
+//    String edit(@RequestParam Integer id){
+//        MemberService.delete(id);
+//        return "/member";
+//    }
+
+    @RequestMapping
+    public ResponseEntity<String> member(){
+        URI location = (URI) MemberSaveRequestDto;
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.setLocation(location);
+        responseHeaders.set("SaveRequest", "Response");
+        return new ResponseEntity<String>(responseHeaders, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/member")
+    @ResponseStatus(HttpStatus.OK)
+    public MemberDeleteResponseDto deleteMember(@PathVariable Long id) {
+        return memberService.delete(id);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<MemberFindeResponseDto> findMembers() {
+        return memberService.findAll();
+    }
+
+    @GetMapping("/member")
+    @ResponseStatus(HttpStatus.OK)
+    public MemberFindeResponseDto findMember(@PathVariable Long id) {
+        return memberService.findById(id);
+    }
+
 }

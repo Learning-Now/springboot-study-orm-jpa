@@ -1,5 +1,8 @@
 package com.livenow.week1.service;
 
+import com.livenow.week1.DTO.MemberAddRequestDto;
+import com.livenow.week1.DTO.MemberAddResponseDto;
+import com.livenow.week1.DTO.MemberDeleteResponseDto;
 import com.livenow.week1.domain.Member;
 import com.livenow.week1.domain.MemberRepository;
 import com.livenow.week1.domain.Team;
@@ -20,8 +23,6 @@ public class TeamService {
         this.teamRepository = teamRepository;
     }
 
-
-
     @Transactional
     public void save(String name) {
         Team team = new Team(AGE++, name);
@@ -33,20 +34,27 @@ public class TeamService {
         Team team = teamRepository.findById(teamId);
         Member member = memberRepository.findById(memberId);
         member.changeTeam(team);
-
         team.getMembers().add(member);
     }
 
+    @Transactional
+    public MemberAddResponseDto addMember(MemberAddRequestDto memberAddRequestDto) {
+    Team team = teamRepository.findById(memberAddRequestDto.getTeamId());
+    Member member = memberRepository.findById(memberAddRequestDto.getMemberId());
+        member.changeTeam(team);
+        return new MemberAddResponseDto(member, team);
+    }
     @Transactional
     public static void deleteMember(String memberId) {
         TeamService.deleteMember(memberId);
     }
     @Transactional
-    public void delete(String id) {
-        Team team = (Team) Team.findById(new Long(id)).orElseThrow(()->new RuntimeException("아이디가 존재하지 않습니다."));
-        team.setDeleted(id);
-        teamRepository.save(team);
-
+    public MemberDeleteResponseDto deleteMember(Long id) {
+        Member member = memberRepository.findById(id);
+        Team team= teamRepository.findById(id);
+        member.deleteTeam();
+        team.deleteMember(member);
+        return new MemberDeleteResponseDto(member);
     }
 
 }
