@@ -32,9 +32,6 @@ public class MemberController {
         Message message = new Message();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType((new MediaType("application", "json", Charset.forName("UTF-8"))));
-
-        message.setStatus(StatusEnum.OK);
-        message.setMessage("성공 코드");
         return new ResponseEntity<>(message, headers, HttpStatus.OK);
     }
 
@@ -43,9 +40,6 @@ public class MemberController {
         Message message = new Message();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType((new MediaType("application", "json", Charset.forName("UTF-8"))));
-
-        message.setStatus(StatusEnum.OK);
-        message.setMessage("성공 코드");
         message.setData(memberService.findById(id));
         return new ResponseEntity<>(message, headers, HttpStatus.OK);
     }
@@ -55,9 +49,6 @@ public class MemberController {
         Message message = new Message();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType((new MediaType("application", "json", Charset.forName("UTF-8"))));
-
-        message.setStatus(StatusEnum.OK);
-        message.setMessage("성공 코드");
         message.setData(memberService.update(id, requestDto));
         return new ResponseEntity<>(message, headers, HttpStatus.OK);
     }
@@ -68,10 +59,6 @@ public class MemberController {
         Message message = new Message();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType((new MediaType("application", "json", Charset.forName("UTF-8"))));
-
-        message.setStatus(StatusEnum.OK);
-        message.setMessage("성공 코드");
         return new ResponseEntity<>(message, headers, HttpStatus.OK);
     }
-
 }

@@ -22,10 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="refactor : 코드 컨벤션 수정">
+    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="refactor : @Data 삭제">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberSaveRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberSaveRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberUpdateRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/dto/MemberUpdateRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/responsemessage/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/com/livenow/week1/controller/responsemessage/Message.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +185,7 @@
       <workItem from="1626780790932" duration="1546000" />
       <workItem from="1626954166186" duration="1016000" />
       <workItem from="1626955284114" duration="121000" />
-      <workItem from="1627262276449" duration="119000" />
+      <workItem from="1627262276449" duration="371000" />
     </task>
     <task id="LOCAL-00001" summary="feat : MemberResponseDto 구현">
       <created>1626425579298</created>
@@ -320,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626955369042</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="refactor : @Data 삭제">
+      <created>1627262408590</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1627262408590</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,7 +365,8 @@
     <MESSAGE value="Test : MemberService delete 테스트" />
     <MESSAGE value="refactor : responseEntity를 통해 response값 재정의" />
     <MESSAGE value="refactor : 코드 컨벤션 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor : 코드 컨벤션 수정" />
+    <MESSAGE value="refactor : @Data 삭제" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor : @Data 삭제" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2272" y="405" key="#Assign_Data_Sources" timestamp="1626425933395">
@@ -421,10 +429,11 @@
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state x="1890" y="190" key="SettingsEditor/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626694046580" />
-    <state x="1965" y="247" key="Vcs.Push.Dialog.v2" timestamp="1626955384565">
-      <screen x="1440" y="23" width="1882" height="1057" />
+    <state x="391" y="209" key="Vcs.Push.Dialog.v2" timestamp="1627262415234">
+      <screen x="0" y="23" width="1403" height="877" />
     </state>
     <state x="391" y="209" key="Vcs.Push.Dialog.v2/0.23.1402.877@0.23.1402.877" timestamp="1626669055580" />
+    <state x="391" y="209" key="Vcs.Push.Dialog.v2/0.23.1403.877@0.23.1403.877" timestamp="1627262415234" />
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1882.1057@1440.23.1882.1057" timestamp="1626608644246" />
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1883.1057@1440.23.1883.1057" timestamp="1626781150311" />
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626955384565" />

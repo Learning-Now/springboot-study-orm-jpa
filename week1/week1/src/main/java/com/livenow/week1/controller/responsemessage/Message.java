@@ -1,8 +1,8 @@
 package com.livenow.week1.controller.responsemessage;
 
-import lombok.Data;
+import lombok.Setter;
 
-@Data
+@Setter
 public class Message {
 
     private StatusEnum status;
@@ -10,8 +10,8 @@ public class Message {
     private Object data;
 
     public Message() {
-        this.status = StatusEnum.BAD_REQUEST;
-        this.message = null;
+        this.status = StatusEnum.OK;
+        this.message = "성공완료";
         this.data = null;
     }
 }
