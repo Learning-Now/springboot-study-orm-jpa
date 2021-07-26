@@ -22,8 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="refactor : message객체의 set을 생성자 단으로 이동">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    <list default="true" id="de5999d5-779a-437a-bcc4-fbcb0ef2f3a5" name="Default Changelist" comment="test : gitignore">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,13 +103,15 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.MemberServiceTest.저장">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -196,7 +198,8 @@
       <workItem from="1626954166186" duration="1016000" />
       <workItem from="1626955284114" duration="121000" />
       <workItem from="1627262276449" duration="1021000" />
-      <workItem from="1627299282356" duration="78000" />
+      <workItem from="1627299282356" duration="103000" />
+      <workItem from="1627299440419" duration="38000" />
     </task>
     <task id="LOCAL-00001" summary="feat : MemberResponseDto 구현">
       <created>1626425579298</created>
@@ -345,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627262699808</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="test : gitignore">
+      <created>1627299378657</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1627299378657</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +395,8 @@
     <MESSAGE value="refactor : 코드 컨벤션 수정" />
     <MESSAGE value="refactor : @Data 삭제" />
     <MESSAGE value="refactor : message객체의 set을 생성자 단으로 이동" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor : message객체의 set을 생성자 단으로 이동" />
+    <MESSAGE value="test : gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="test : gitignore" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2272" y="405" key="#Assign_Data_Sources" timestamp="1626425933395">
@@ -448,8 +459,8 @@
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
     <state x="1890" y="190" key="SettingsEditor/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626694046580" />
-    <state x="391" y="209" key="Vcs.Push.Dialog.v2" timestamp="1627265277730">
-      <screen x="0" y="23" width="1404" height="877" />
+    <state x="401" y="209" key="Vcs.Push.Dialog.v2" timestamp="1627299382375">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="391" y="209" key="Vcs.Push.Dialog.v2/0.23.1402.877@0.23.1402.877" timestamp="1626669055580" />
     <state x="391" y="209" key="Vcs.Push.Dialog.v2/0.23.1403.877@0.23.1403.877" timestamp="1627262702242" />
@@ -457,6 +468,7 @@
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1882.1057@1440.23.1882.1057" timestamp="1626608644246" />
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1883.1057@1440.23.1883.1057" timestamp="1626781150311" />
     <state x="1965" y="247" key="Vcs.Push.Dialog.v2/1440.23.1882.1057/0.23.1440.877@1440.23.1882.1057" timestamp="1626955384565" />
+    <state x="401" y="209" key="Vcs.Push.Dialog.v2/1440.23.1883.1057/0.23.1440.877@0.23.1440.877" timestamp="1627299382375" />
     <state x="2178" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1626425863625">
       <screen x="1440" y="23" width="1882" height="1057" />
     </state>
