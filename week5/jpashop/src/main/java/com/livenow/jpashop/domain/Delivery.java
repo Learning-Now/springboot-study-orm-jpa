@@ -1,28 +1,30 @@
 package com.livenow.jpashop.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
-public class Member {
+@Setter
+public class Delivery {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_id")
+    @Column(name = "delivery_id")
     private Long id;
 
-    private String name;
+    @OneToOne(mappedBy = "delivery")
+    private Order order;
 
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "member")
-    private List<Order> orders = new ArrayList<>();
+    @Enumerated(EnumType.STRING)
+    private DeliveryStatus status;
 
-    protected Member() {
+
+    protected Delivery() {
     }
 }
