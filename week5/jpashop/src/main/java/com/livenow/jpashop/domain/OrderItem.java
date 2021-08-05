@@ -1,10 +1,12 @@
 package com.livenow.jpashop.domain;
 
 import com.livenow.jpashop.domain.item.Item;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
+@Setter
 public class OrderItem {
 
     @Id
@@ -12,14 +14,39 @@ public class OrderItem {
     @Column(name ="orderitem_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order;
 
     private int orderPrice;
     private int count;
+
+    // 연관관계 편의 메소드
+    public void setOrder(Order order) {
+        this.order = order;
+        order.getOrderItems().add(this);
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+        item.getOrderItems().add(this);
+    }
+
+    public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setOrderPrice(orderPrice);
+        orderItem.setCount(count);
+
+        item.removeStock(count);
+        return orderItem;
+    }
+
+    public void cancel() {
+        this.item.addStock(count);
+    }
 }

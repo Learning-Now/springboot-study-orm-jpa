@@ -15,16 +15,14 @@ public class Delivery {
     @Column(name = "delivery_id")
     private Long id;
 
-    @OneToOne(mappedBy = "delivery")
-    private Order order;
-
     @Embedded
     private Address address;
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
 
-
-    protected Delivery() {
+    public Delivery(Address address) {
+        this.address = address;
+        this.status = DeliveryStatus.FAIL;
     }
 }

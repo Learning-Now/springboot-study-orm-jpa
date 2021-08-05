@@ -1,6 +1,8 @@
 package com.livenow.jpashop.domain;
 
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
@@ -10,6 +12,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "ORDERS")
+@Getter
+@Setter
 public class Order {
 
     @Id
@@ -17,15 +21,15 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
     private List<OrderItem> orderItems = new ArrayList<>();
 
     private Date orderDate;
@@ -36,23 +40,34 @@ public class Order {
     protected Order() {
     }
 
-    @Builder
-    public Order(Member member, Delivery delivery, Date orderDate, OrderStatus orderStatus) {
-        this.member = member;
-        this.delivery = delivery;
-        this.orderDate = orderDate;
-        this.orderStatus = orderStatus;
-    }
-
     //==연관관계 편의 메소드==//
     public void setMember(Member member) {
         this.member = member;
         member.getOrders().add(this);
     }
 
-    public void setDelivery(Delivery delivery) {
-        this.delivery = delivery;
-        delivery.setOrder(this);
+    public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
+        Order order = new Order();
+        order.setMember(member);
+        order.setDelivery(delivery);
+        for (OrderItem orderItem : orderItems) {
+            order.getOrderItems().add(orderItem);
+        }
+        order.setOrderStatus(OrderStatus.ORDER);
+        order.setOrderDate(new Date());
+        return order;
     }
+
+    public void cancel() {
+        if (delivery.getStatus() == DeliveryStatus.COMPLATE ) {
+            throw new RuntimeException("이미 배송된 상품은 취소가 불가능 합니다.");
+        }
+
+        this.setOrderStatus(OrderStatus.CANCEL);
+        for (OrderItem orderItem : orderItems) {
+            orderItem.cancel();
+        }
+    }
+
 
 }
