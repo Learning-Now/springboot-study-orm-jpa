@@ -1,5 +1,6 @@
 package com.livenow.jpashop.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -25,4 +26,11 @@ public class Member {
 
     protected Member() {
     }
+
+    @Builder
+    public Member(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
+
 }
