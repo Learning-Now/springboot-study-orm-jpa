@@ -1,5 +1,6 @@
 package com.livenow.jpashop.domain;
 
+import lombok.Builder;
 import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
@@ -35,6 +36,14 @@ public class Order {
     protected Order() {
     }
 
+    @Builder
+    public Order(Member member, Delivery delivery, Date orderDate, OrderStatus orderStatus) {
+        this.member = member;
+        this.delivery = delivery;
+        this.orderDate = orderDate;
+        this.orderStatus = orderStatus;
+    }
+
     //==연관관계 편의 메소드==//
     public void setMember(Member member) {
         this.member = member;
@@ -45,4 +54,5 @@ public class Order {
         this.delivery = delivery;
         delivery.setOrder(this);
     }
+
 }
