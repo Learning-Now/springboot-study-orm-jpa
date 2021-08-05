@@ -1,14 +1,12 @@
 package com.livenow.jpashop.service;
 
-import com.livenow.jpashop.domain.Delivery;
-import com.livenow.jpashop.domain.Member;
-import com.livenow.jpashop.domain.Order;
-import com.livenow.jpashop.domain.OrderItem;
+import com.livenow.jpashop.domain.*;
 import com.livenow.jpashop.domain.item.Item;
 import com.livenow.jpashop.domain.repository.MemberRepository;
 import com.livenow.jpashop.domain.repository.OrderRepository;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,8 +40,8 @@ public class OrderService {
         order.cancel();
     }
     //주문 검색
-    public List<Order> findOrders(){
-        return orderRepository.findAll();
+    public List<Order> findOrders(OrderSearch orderSearch){
+        return orderRepository.findAll(orderSearch);
     }
 
 }
