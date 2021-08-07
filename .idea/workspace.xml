@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca9102cc-c0bc-4b3d-a42d-c9c378d20317" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/week1/week1/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/week1/week1/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/week1/src/test/java/com/livenow/week1/domain/MemberRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/week1/src/test/java/com/livenow/week1/domain/MemberRepositoryTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="ca9102cc-c0bc-4b3d-a42d-c9c378d20317" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -228,7 +223,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1628090324416</updated>
-      <workItem from="1628090329561" duration="2748000" />
+      <workItem from="1628090329561" duration="3658000" />
     </task>
     <servers />
   </component>
