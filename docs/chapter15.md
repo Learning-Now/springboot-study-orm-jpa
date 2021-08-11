@@ -58,3 +58,60 @@ Member member2 = em.find(Member.class, "1L");
 
 assertTrue(member1 == member2); // 둘은 같은 인스턴스이다.
 ```
+
+### 영속성 컨텍스트가 같을때 엔티티 비교
+
+영속성 컨텍스트가 같을시 엔티티를 비교할때 3가지 조건을 모두 만족하게 된다.
+
+- 동일성identical: == 비교가 같다.
+- 동등성equinalent: equals() 비교가 같다.
+- 데이터 베이스 동등성: @Id인 데이터베이스 식별자가 같다.
+
+### 영속성 컨텍스트가 다를때 엔티티 비교
+
+영속성 컨텍스트가 다를때는 보통 트랜잭션이 하위 계층에 한정되어있고 계층의 메소드를 다시 불러올때 새로운 영속성 컨텍스트가 생성되면서 이 같은 상황이 생기게 된다.
+
+이때는 다음과 같은 조건을 만족하게 된다.
+
+- 동일성identical: ==비교가 실패.
+- 동등성equinalent: equals() 비교가 만족한다. 단 equals()를 구현해야함 (보통 비즈니스 키로 구현)
+- 데이터베이스 동등성: @Id인 데이터 베이스 식별자가 같다.
+
+---
+
+## 프록시 심화 주제
+
+프록시의 기술적 한계로 인해 발생하는 문제에 대해 알아보고 해결방법도 알아보자.
+
+### 영속성 컨텍스트와 프록시
+
+영속성 컨텍스트는 자신이 관리하는 엔티티의 동일성을 보장한다. 이때 프록시로 조회한 엔티티도 보장을 할까?
+
+```java
+Member refMember = em.getReference(Member.class, "member1");
+Member findMember = em.find(Member.class, "member1");
+
+->
+refMember Type = class jpabook.advanced.Member_$$_jvst843_0
+findMember Type = class jpabook.advanced.Member_$$_jvst843_0
+```
+
+- 둘을 프록시와 원래의 엔티티로 다른 엔티티로 생각할수 있지만 영속성 컨텍스트는 **프록시로 조회된 엔티티에 대해 같은 엔티티를 찾는 요청**이 오면 원본 엔티티가 아닌 처음 조회된 프록시를 반환한다.
+- 이 때문에 findMember 는 프록시가 반환된것이다.
+
+```java
+Member findMember = em.find(Member.class, "member1");
+Member refMember = em.getReference(Member.class, "member1");
+
+->
+findMember Type = class jpabook.advanced.Member
+refMember Type = class jpabook.advanced.Member
+```
+
+- 원본 엔티티를 먼저 조회 하게 된다면 영속성 컨텍스트는 원본 엔티티를 이미 조회했기 때문에 영속성 컨텍스트에 원본 엔티티가 존재한다. 따라서 프록시로 조회할 이유가 없게된다.
+
+➕ 프록시로 조회한 엔티티의 타입을 비교시 == 비교가 아닌 instanceof를 사용해야 한다.
+
+➕ 프록시의 동등성을 비교하기 위해서는 비즈니스키를 사용해 equals()를 오버라이딩 하고 비교한다.
+
+➕ 프록시를 부모타입으로 조회하면 문제가 발생하게 된다.
