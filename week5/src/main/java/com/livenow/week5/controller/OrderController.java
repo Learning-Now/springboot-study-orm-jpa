@@ -17,13 +17,13 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class OrderController {
+
     private final OrderService orderService;
     private final MemberService memberService;
     private final ItemService itemService;
 
     @GetMapping("/order")
     public String creatForm(Model model) {
-
         List<Member> members = memberService.findMembers();
         List<Item> items = itemService.findItems();
 
@@ -40,8 +40,6 @@ public class OrderController {
 
         orderService.order(memberId, itemId, count);    //이러면 order로직이 돌아감, 이렇게 비지니스 로직으로 보내게 짜는게 좋다.
         return "redirect:/orders";                      //여려개 상품을 선택할 수 있게 해보자!
-
-
     }
 
     /**
@@ -62,5 +60,4 @@ public class OrderController {
         orderService.cancelOrder(orderId);
         return "redirect:/orders";
     }
-
 }

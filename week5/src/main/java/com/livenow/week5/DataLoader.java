@@ -11,9 +11,6 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
-import java.util.List;
-
 @Component
 @RequiredArgsConstructor
 @Profile("default|test")
@@ -34,15 +31,12 @@ public class DataLoader implements CommandLineRunner {
         book.setName("동현");
         itemRepository.save(book);
 
-
-
         Member member = new Member();
         Address address = new Address("시", "군", "구");
         member.setAddress(address);
         member.setName("다훈");
         memberRepository.save(member);
         OrderItem orderItem = OrderItem.createOrderItem(book, 2, 2);
-
 
         Delivery delivery = new Delivery();
         delivery.setAddress(address);

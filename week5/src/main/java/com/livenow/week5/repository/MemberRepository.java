@@ -1,6 +1,5 @@
 package com.livenow.week5.repository;
 
-
 import com.livenow.week5.domain.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -15,7 +14,6 @@ public class MemberRepository {
     //  @PersistenceContext     //이게 있으면 jpa entitymanager를 주입해줌
 
     private final EntityManager em;
-
 
     public void save(Member member) {
         em.persist(member);             //영속성 컨텍스트에 member객체를 넣음 transaction이 커밋되는 시점에 디비에 반영됨
@@ -41,5 +39,4 @@ public class MemberRepository {
                 .setParameter("name", name)
                 .getResultList();
     }
-
 }

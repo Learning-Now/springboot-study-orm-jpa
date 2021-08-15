@@ -1,6 +1,7 @@
 package com.livenow.week5;
 
 public class NotEnoughStockException extends RuntimeException {
+
     public NotEnoughStockException() {
         super();
     }

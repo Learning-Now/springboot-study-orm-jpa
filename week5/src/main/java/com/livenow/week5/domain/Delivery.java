@@ -25,5 +25,4 @@ public class Delivery {
 
     @Enumerated(EnumType.STRING)   //ordinal은 순자로 들어감 123, 중간에 다른 상태가 생가면 망함 그래서 String으로 함
     private DeliveryStatus status; //READY, COMP
-
 }

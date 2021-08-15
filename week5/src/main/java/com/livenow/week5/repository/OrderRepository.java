@@ -27,10 +27,6 @@ public class OrderRepository {
         return em.find(Order.class, id);
     }
 
-
-
-
-
 /*    public List<Order> findAll(OrderSearch orderSearch){
         String jpql ="select  o from Order o join o.member m ";
 
@@ -41,10 +37,7 @@ public class OrderRepository {
                 .setParameter("name", orderSearch.getMemberName())
                 .setMaxResults(1000)        //재한을 걸어줌
                 .getResultList();*//*     //이건 정적 쿼리, 값을 알고있기 때문에
-
-
     }*/
-
 
     /**
      * JPQL로 처리, 쿼리를 문자로 생성하기는 번거롭고, 실수로 인한 버그가 충분히 발생할 수 있다.
@@ -53,6 +46,7 @@ public class OrderRepository {
         //language=JPAQL
         String jpql = "select o From Order o join o.member m";
         boolean isFirstCondition = true;
+
         //주문 상태 검색
         if (orderSearch.getOrderStatus() != null) {
             if (isFirstCondition) {
@@ -63,6 +57,7 @@ public class OrderRepository {
             }
             jpql += " o.status = :status";
         }
+
         //회원 이름 검색
         if (StringUtils.hasText(orderSearch.getMemberName())) {
             if (isFirstCondition) {
@@ -73,11 +68,14 @@ public class OrderRepository {
             }
             jpql += " m.name like :name";
         }
+
         TypedQuery<Order> query = em.createQuery(jpql, Order.class)
                 .setMaxResults(1000); //최대 1000건
+
         if (orderSearch.getOrderStatus() != null) {
             query = query.setParameter("status", orderSearch.getOrderStatus());
         }
+
         if (StringUtils.hasText(orderSearch.getMemberName())) {
             query = query.setParameter("name", orderSearch.getMemberName());
         }
@@ -95,12 +93,14 @@ public class OrderRepository {
         Root<Order> o = cq.from(Order.class);
         Join<Order, Member> m = o.join("member", JoinType.INNER); //회원과 조인
         List<Predicate> criteria = new ArrayList<>();
+
         //주문 상태 검색
         if (orderSearch.getOrderStatus() != null) {
             Predicate status = cb.equal(o.get("status"),
                     orderSearch.getOrderStatus());
             criteria.add(status);
         }
+
         //회원 이름 검색
         if (StringUtils.hasText(orderSearch.getMemberName())) {
             Predicate name =
@@ -113,5 +113,4 @@ public class OrderRepository {
 
         return query.getResultList();
     }
-
 }

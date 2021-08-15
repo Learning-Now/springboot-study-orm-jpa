@@ -16,6 +16,7 @@ import static javax.persistence.FetchType.LAZY;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)  //이렇게 제한하면서 짜야지, 누군가 잘못 접근할 때 제한할 수 있다.
 public class OrderItem {
+
     @Id
     @GeneratedValue
     @Column(name = "order_item_id")

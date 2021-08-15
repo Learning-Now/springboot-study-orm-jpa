@@ -1,6 +1,5 @@
 package com.livenow.week5.controller;
 
-
 import com.livenow.week5.domain.Address;
 import com.livenow.week5.domain.Member;
 import com.livenow.week5.service.MemberService;
@@ -14,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 import java.util.List;
 
-
 @Controller
 @RequiredArgsConstructor
 public class MemberController {
+
     private final MemberService memberService;
 
     @GetMapping("/members/new")
@@ -51,6 +50,4 @@ public class MemberController {
 
         return "members/memberList";
     }
-
-
 }

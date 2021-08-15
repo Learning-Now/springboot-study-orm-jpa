@@ -1,6 +1,5 @@
 package com.livenow.week5.service;
 
-
 import com.livenow.week5.domain.Member;
 import com.livenow.week5.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,9 +12,11 @@ import java.util.List;
 @Transactional(readOnly = true)      //데이터 변경은 트렌젝션이 필요함
 @RequiredArgsConstructor            //선언된 모든 final필드가 포함된 생성자를 생성
 public class MemberService {           //읽기전용으로 해놓으면 성능이 좋아짐, 이렇게 해놓으면 전반적으로 걸린다.
+
     // @Autowired  //스프링이 스프링 빈에 등록되어있는 멤버리포지토리를 인젝션됨
     private final MemberRepository memberRepository;    //변경할 일이 없기 때문
-/*
+
+    /*
     public MemberService(MemberRepository memberRepository) {   //Autowired를 안한 이유는 최신 스프링이 어노테이션이 없어도 인젝션을 해줌
         this.memberRepository = memberRepository;
     }*/
@@ -34,7 +35,6 @@ public class MemberService {           //읽기전용으로 해놓으면 성능�
         if (!findMembers.isEmpty()) {
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
-
     }
 
     //회원 전체 조회

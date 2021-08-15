@@ -1,6 +1,5 @@
 package com.livenow.week5.controller;
 
-
 import com.livenow.week5.domain.item.Book;
 import com.livenow.week5.domain.item.Item;
 import com.livenow.week5.service.ItemService;
@@ -28,7 +27,6 @@ public class ItemController {
 
     @PostMapping("/items/new")
     public String create(BookForm form) {
-
         Book book = new Book();                         //이것은 이후에 바꿔야한다. set을 이렇게 하는건 좋지않다.
         book.setName(form.getName());                   //실무에서는 setter를 다 랄림
         book.setName(form.getName());
@@ -67,7 +65,6 @@ public class ItemController {
 
     @PostMapping("/items/{itemId}/edit")  //{itemId}는 path variable
     public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") BookForm form) {             //html에서 잡은 form이라는 attribute를 사용하기위해 @ModelAttribute사용
-
         /**
          * 준영속 엔티티?: 영속성 켄텍스가 더는 관리하지 않는 엔티티, 이미 DB에 한번 저장되어서 식별자가 존재하는것
          * 지금은 book이 준영속 엔티티다다.

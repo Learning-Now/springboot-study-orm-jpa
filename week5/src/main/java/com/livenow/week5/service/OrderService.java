@@ -29,7 +29,6 @@ public class OrderService {
      */
     @Transactional
     public Long order(Long memberId, Long itemId, int count) {
-
         // 엔티티 조회
         Member member = memberRepository.findOne(memberId);
         Item item = itemRepository.findOne(itemId);
@@ -48,7 +47,6 @@ public class OrderService {
         orderRepository.save(order);        //이전에 cascade를 해줬기 때문에 이것만 해줘도 orderitem 랑 delivery가 자동으로 persist가됨
         //cascade를  언제써야할가? 주인이 private owner일 때만
         return order.getId();          //lifecycle이 같이 persist를 할때 주로 씀
-
     }
 
     /**

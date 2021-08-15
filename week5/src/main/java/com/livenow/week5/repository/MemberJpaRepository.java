@@ -13,7 +13,6 @@ public interface MemberJpaRepository extends JpaRepository<Member, Long> {
 
     List<Member> findByNameLike(String name);
 
-
     @EntityGraph(attributePaths = {"orders"}, type = EntityGraph.EntityGraphType.LOAD)
     List<Member> findByNameContainingOrderByNameDesc(String name);
 }

@@ -1,6 +1,5 @@
 package com.livenow.week5.controller;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,5 +13,4 @@ public class BookForm {
     private int stockQuantity;
     private String author;
     private String isbn;
-
 }

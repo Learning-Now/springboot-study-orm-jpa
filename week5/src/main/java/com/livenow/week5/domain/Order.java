@@ -1,6 +1,5 @@
 package com.livenow.week5.domain;
 
-
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +18,7 @@ import static javax.persistence.FetchType.LAZY;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)  //이렇게 제한하면서 짜야지, 누군가 잘못 접근할 때 제한할 수 있다.
 public class Order {
+
     @Id
     @GeneratedValue
     @Column(name = "order_id")
@@ -34,9 +34,8 @@ public class Order {
     // persist(orderItemaA)
     // persist(orderItemaB)
     // persist(orderItemaC)
-    //persist(order) 를 해주는 것을 cascade를 쓰면
-
-    //persis(order)만 쓰면됨
+    // persist(order) 를 해주는 것을 cascade를 쓰면
+    // persist(order)만 쓰면됨
 
     @OneToOne(fetch = LAZY, cascade = CascadeType.ALL)                  //엑세스를 많이하는 곳에 FK를 둠  oto 에서 어디에 두냐는 상관없음
     @JoinColumn(name = "delivery_id")
@@ -87,10 +86,9 @@ public class Order {
         for (OrderItem orderItem : orderItems) {
             orderItem.cancel();
         }
-
     }
 
-    //전체 주문 가겨 조회
+    //전체 주문 가격 조회
     public int getTotalPrice() {
 /*        int totalPrice = 0;
         for(OrderItem orderItem : orderItems){
@@ -99,9 +97,9 @@ public class Order {
         return totalPrice;*/
         //람다나 스트림 사용 필
 
-        int totalPrice = orderItems.stream().mapToInt(OrderItem::getTotalPrice).sum();
+        int totalPrice = orderItems.stream()
+                .mapToInt(OrderItem::getTotalPrice)
+                .sum();
         return totalPrice;
     }
-
-
 }

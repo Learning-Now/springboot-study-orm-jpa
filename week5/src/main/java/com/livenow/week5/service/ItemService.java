@@ -20,7 +20,6 @@ public class ItemService {
         itemRepository.save(item);
     }
 
-
     /**
      * 준영속 엔티티를 수정하는 2가지 방법중 변경 감지 기능
      * findItem으로 찾아온 애는 영속상태이다. 트랜젝션에 의해서 커밋이된다.
@@ -57,6 +56,4 @@ public class ItemService {
     public Item findOne(Long id) {
         return itemRepository.findOne(id);
     }
-
-
 }
