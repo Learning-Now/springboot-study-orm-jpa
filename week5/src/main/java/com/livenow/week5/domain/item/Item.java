@@ -3,8 +3,12 @@ package com.livenow.week5.domain.item;
 
 import com.livenow.week5.NotEnoughStockException;
 import com.livenow.week5.domain.Category;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+import net.bytebuddy.implementation.bind.annotation.Super;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,6 +20,7 @@ import java.util.List;
 @DiscriminatorColumn(name = "dtype")  //저장을할 때 구분하기 위해
 @Getter
 @Setter
+@AllArgsConstructor
 public abstract class Item {
     @Id
     @GeneratedValue
@@ -29,6 +34,9 @@ public abstract class Item {
     @ManyToMany(mappedBy = "items")         //다대다 예제를 위해, 실무에선 거의 안쓴다
     private List<Category> categories = new ArrayList<>();
 
+    protected Item() {
+
+    }
     //==비즈니스 로직 == //
 
     //stock 증가
@@ -45,4 +53,5 @@ public abstract class Item {
         }
         this.stockQuantity = restStock;
     }
+
 }

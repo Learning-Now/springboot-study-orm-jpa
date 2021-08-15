@@ -26,12 +26,14 @@ public class DataLoader implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
-        Book book = new Book();
-        book.setAuthor("정윤");
-        book.setIsbn("isbn");
-        book.setPrice(10000);
-        book.setStockQuantity(20);
-        book.setName("동현");
+        Book book = Book.builder()
+                .author("정윤")
+                .isbn("isbn")
+                .price(10000)
+                .name("동현")
+                .stockQuantity(20)
+                .build();
+
         itemRepository.save(book);
 
 
