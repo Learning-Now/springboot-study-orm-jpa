@@ -36,12 +36,11 @@ public class DataLoader implements CommandLineRunner {
 
         itemRepository.save(book);
 
-
-
-        Member member = new Member();
         Address address = new Address("시", "군", "구");
-        member.setAddress(address);
-        member.setName("다훈");
+        Member member = Member.builder()
+                .address(address)
+                .name("다훈")
+                .build();
         memberRepository.save(member);
         OrderItem orderItem = OrderItem.createOrderItem(book, 2, 2);
 

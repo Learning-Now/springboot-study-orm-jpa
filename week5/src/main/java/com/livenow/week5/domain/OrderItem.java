@@ -1,10 +1,7 @@
 package com.livenow.week5.domain;
 
 import com.livenow.week5.domain.item.Item;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,7 +10,6 @@ import static javax.persistence.FetchType.LAZY;
 @Entity
 @Table(name = "order_item")
 @Getter
-@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)  //이렇게 제한하면서 짜야지, 누군가 잘못 접근할 때 제한할 수 있다.
 public class OrderItem {
     @Id
@@ -32,13 +28,25 @@ public class OrderItem {
     private int orderPrice;
     private int count;
 
+    @Builder
+    public OrderItem(Long id, Item item, Order order, int orderPrice, int count) {
+        this.id = id;
+        this.item = item;
+        this.order = order;
+        this.orderPrice = orderPrice;
+        this.count = count;
+    }
+
+    protected OrderItem(Long id) {
+    }
+
     //==생성 메서드 == //
     public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
-        OrderItem orderItem = new OrderItem();
-        orderItem.setItem(item);
-        orderItem.setOrderPrice(orderPrice);
-        orderItem.setCount(count);
-
+        OrderItem orderItem = OrderItem.builder()
+                                            .item(item)
+                                            .orderPrice(orderPrice)
+                                            .count(count)
+                                            .build();
         item.removeStock(count);
         return orderItem;
     }
