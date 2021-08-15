@@ -1,10 +1,7 @@
 package com.livenow.week5.domain;
 
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -47,6 +44,19 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status; // 주문상태[ORDER, CANCEL]
+
+    @Builder
+    public Order(Long id, Member member, List<OrderItem> orderItems, Delivery delivery, LocalDateTime orderDate, OrderStatus status) {
+        this.id = id;
+        this.member = member;
+        this.orderItems = orderItems;
+        this.delivery = delivery;
+        this.orderDate = orderDate;
+        this.status = status;
+    }
+
+    protected Order() {
+    }
 
     //==연관관계 메서드 ==// 양방향일때 연관관계를 한번에 설정
     public void setMember(Member member) {
