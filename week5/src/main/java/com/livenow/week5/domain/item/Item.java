@@ -19,7 +19,6 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)   //상속관계 전략을 짜야하기 때문 single table 은 한 테이블에 다 때려박는것
 @DiscriminatorColumn(name = "dtype")  //저장을할 때 구분하기 위해
 @Getter
-@Setter
 @AllArgsConstructor
 public abstract class Item {
     @Id

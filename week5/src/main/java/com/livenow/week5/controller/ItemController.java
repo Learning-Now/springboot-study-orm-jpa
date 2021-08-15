@@ -28,14 +28,13 @@ public class ItemController {
 
     @PostMapping("/items/new")
     public String create(BookForm form) {
-
-        Book book = new Book();                         //이것은 이후에 바꿔야한다. set을 이렇게 하는건 좋지않다.
-        book.setName(form.getName());                   //실무에서는 setter를 다 랄림
-        book.setName(form.getName());
-        book.setPrice(form.getPrice());
-        book.setStockQuantity(form.getStockQuantity());
-        book.setAuthor(form.getAuthor());
-        book.setIsbn(form.getIsbn());
+        Book book = Book.builder()
+                            .name(form.getName())
+                            .price(form.getPrice())
+                            .stockQuantity(form.getStockQuantity())
+                            .author(form.getAuthor())
+                            .isbn(form.getIsbn())
+                            .build();                         //이것은 이후에 바꿔야한다. set을 이렇게 하는건 좋지않다.
 
         itemService.saveItem(book);
         return "redirect:/";

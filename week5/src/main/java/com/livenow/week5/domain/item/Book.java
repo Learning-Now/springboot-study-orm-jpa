@@ -13,7 +13,6 @@ import java.util.List;
 @Entity
 @DiscriminatorValue("B")        //default는 class 이름으로 들어감
 @Getter
-@Setter
 public class Book extends Item {
 
     private String author;

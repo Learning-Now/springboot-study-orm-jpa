@@ -13,7 +13,6 @@ import static javax.persistence.FetchType.LAZY;
 @Entity
 @Table(name = "orders")
 @Getter
-@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)  //이렇게 제한하면서 짜야지, 누군가 잘못 접근할 때 제한할 수 있다.
 public class Order {
     @Id
@@ -55,9 +54,6 @@ public class Order {
         this.status = status;
     }
 
-    protected Order() {
-    }
-
     //==연관관계 메서드 ==// 양방향일때 연관관계를 한번에 설정
     public void setMember(Member member) {
         this.member = member;
@@ -76,14 +72,15 @@ public class Order {
 
     //==생성 메서드 ==// //생성하는 지점을 변경하자면 여기만 바꾸면 됨
     public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
-        Order order = new Order();
-        order.setMember(member);
-        order.setDelivery(delivery);
+        Order order = Order.builder()
+                .member(member)
+                .delivery(delivery)
+                .status(OrderStatus.ORDER)
+                .orderDate(LocalDateTime.now())
+                .build();
         for (OrderItem orderItem : orderItems) {
             order.addOrderItem(orderItem);
         }
-        order.setStatus(OrderStatus.ORDER);
-        order.setOrderDate(LocalDateTime.now());
         return order;
     }
     //==비즈니스 로직 ==//
@@ -93,11 +90,10 @@ public class Order {
         if (delivery.getStatus() == DeliveryStatus.COMP) {
             throw new IllegalStateException("이미 배송 완료된 상품은 취소가 불가능합니다.");
         }
-        this.setStatus(OrderStatus.CANCEL);
+        status = OrderStatus.CANCEL;
         for (OrderItem orderItem : orderItems) {
             orderItem.cancel();
         }
-
     }
 
     //전체 주문 가겨 조회
