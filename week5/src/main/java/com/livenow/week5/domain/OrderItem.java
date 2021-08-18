@@ -37,10 +37,6 @@ public class OrderItem {
         this.orderPrice = orderPrice;
         this.count = count;
     }
-
-    protected OrderItem(Long id) {
-    }
-
     //==생성 메서드 == //
     public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
         OrderItem orderItem = OrderItem.builder()

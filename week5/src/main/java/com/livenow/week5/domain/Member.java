@@ -1,9 +1,7 @@
 package com.livenow.week5.domain;
 
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
     @Id
     @GeneratedValue
@@ -30,8 +29,5 @@ public class Member {
         this.name = name;
         this.address = address;
         this.orders = orders;
-    }
-
-    protected Member() {
     }
 }
