@@ -36,9 +36,9 @@ public class Week5Test {
     @Test
     void findMember() {
         //given
-        Member member = new Member();
-        member.setName("멤버");
-
+        Member member = Member.builder()
+                .name("멤버")
+                .build();
         memberRepository.save(member);
         //when
         List<Member> all = memberRepository.findAll();
@@ -60,22 +60,25 @@ public class Week5Test {
     @Test
     void findMemberByJpaRepo() {
         //given
-        Member member = new Member();
-        member.setName("멤버");
+        Member member = Member.builder()
+                .name("멤버")
+                .build();
 
         memberJpaRepository.save(member);
 
         List<Member> members = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            Member member2 = new Member();
-            member2.setName("멤버" + i);
+            Member member2 = Member.builder()
+                    .name("멤버" + i)
+                    .build();
             members.add(memberJpaRepository.save(member2));
         }
 
         List<Member> guests = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            Member guest = new Member();
-            guest.setName("게스트" + i);
+            Member guest = Member.builder()
+                    .name("게스트" + i)
+                    .build();
             guests.add(memberJpaRepository.save(guest));
         }
 

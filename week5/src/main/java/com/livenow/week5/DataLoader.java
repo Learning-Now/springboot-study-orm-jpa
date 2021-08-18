@@ -45,7 +45,10 @@ public class DataLoader implements CommandLineRunner {
                                         .address(address)
                                         .status(DeliveryStatus.COMP)
                                         .build();
-        Order order = Order.createOrder(member, delivery, orderItem);
+        Order order = Order.builder()
+                .member(member)
+                .delivery(delivery)
+                .build();
         orderRepository.save(order);
     }
 }

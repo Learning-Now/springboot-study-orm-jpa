@@ -27,8 +27,7 @@ public class Delivery {
     private DeliveryStatus status; //READY, COMP
 
     @Builder
-    public Delivery(Long id, Order order, Address address, DeliveryStatus status) {
-        this.id = id;
+    public Delivery(Order order, Address address, DeliveryStatus status) {
         this.order = order;
         this.address = address;
         this.status = status;
