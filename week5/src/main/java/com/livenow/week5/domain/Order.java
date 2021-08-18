@@ -25,7 +25,7 @@ public class Order {
     private Member member;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)   //각자 persist 설정하는것을 하나로 줄여줌
-    private List<OrderItem> orderItems = new ArrayList<>();
+    private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
     // persist(orderItemaA)
     // persist(orderItemaB)
@@ -45,10 +45,9 @@ public class Order {
     private OrderStatus status; // 주문상태[ORDER, CANCEL]
 
     @Builder
-    public Order(Long id, Member member, List<OrderItem> orderItems, Delivery delivery, LocalDateTime orderDate, OrderStatus status) {
+    public Order(Long id, Member member, Delivery delivery, LocalDateTime orderDate, OrderStatus status) {
         this.id = id;
         this.member = member;
-        this.orderItems = orderItems;
         this.delivery = delivery;
         this.orderDate = orderDate;
         this.status = status;
