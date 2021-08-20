@@ -2,8 +2,8 @@ package com.livenow.week5.controller;
 
 import com.livenow.week5.domain.Member;
 import com.livenow.week5.domain.Order;
+import com.livenow.week5.domain.OrderSearch;
 import com.livenow.week5.domain.item.Item;
-import com.livenow.week5.repository.OrderSearch;
 import com.livenow.week5.service.ItemService;
 import com.livenow.week5.service.MemberService;
 import com.livenow.week5.service.OrderService;

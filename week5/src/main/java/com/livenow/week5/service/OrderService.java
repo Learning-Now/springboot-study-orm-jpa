@@ -1,14 +1,11 @@
 package com.livenow.week5.service;
 
-import com.livenow.week5.domain.Delivery;
-import com.livenow.week5.domain.Member;
-import com.livenow.week5.domain.Order;
-import com.livenow.week5.domain.OrderItem;
+import com.livenow.week5.domain.*;
 import com.livenow.week5.domain.item.Item;
 import com.livenow.week5.repository.ItemRepository;
 import com.livenow.week5.repository.MemberRepository;
+import com.livenow.week5.repository.OrderJpaRepository;
 import com.livenow.week5.repository.OrderRepository;
-import com.livenow.week5.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +20,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;
+    private final OrderJpaRepository orderJpaRepository;
 
     /**
      * 주문
@@ -65,6 +63,6 @@ public class OrderService {
 
     //검색
     public List<Order> findOrders(OrderSearch orderSearch) {
-        return orderRepository.findAllByString(orderSearch);
+        return orderJpaRepository.findAll(orderSearch.toSpecification());
     }
 }
