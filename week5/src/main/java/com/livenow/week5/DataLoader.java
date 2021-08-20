@@ -23,26 +23,34 @@ public class DataLoader implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
-        Book book = new Book();
-        book.setAuthor("정윤");
-        book.setIsbn("isbn");
-        book.setPrice(10000);
-        book.setStockQuantity(20);
-        book.setName("동현");
+        Book book = Book.builder()
+                .name("동현이는 바보야")
+                .author("정윤")
+                .isbn("isbn")
+                .price(10000)
+                .stockQuantity(20)
+                .build();
         itemRepository.save(book);
 
-        Member member = new Member();
-        Address address = new Address("시", "군", "구");
-        member.setAddress(address);
-        member.setName("다훈");
+        Address address = Address.builder()
+                .city("인천")
+                .street("연수구")
+                .zipcode("아카데미로")
+                .build();
+        Member member = Member.builder()
+                .address(address)
+                .name("다훈태정정답다")
+                .build();
         memberRepository.save(member);
+
         OrderItem orderItem = OrderItem.createOrderItem(book, 2, 2);
 
-        Delivery delivery = new Delivery();
-        delivery.setAddress(address);
-        delivery.setStatus(DeliveryStatus.COMP);
-        Order order = Order.createOrder(member, delivery, orderItem);
+        Delivery delivery = Delivery.builder()
+                .address(address)
+                .status(DeliveryStatus.COMP)
+                .build();
 
+        Order order = Order.createOrder(member, delivery, orderItem);
         orderRepository.save(order);
     }
 }

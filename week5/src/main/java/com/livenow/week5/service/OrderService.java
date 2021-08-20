@@ -34,8 +34,9 @@ public class OrderService {
         Item item = itemRepository.findOne(itemId);
 
         //배송 정보 생성
-        Delivery delivery = new Delivery();
-        delivery.setAddress(member.getAddress());
+        Delivery delivery = Delivery.builder()
+                .address(member.getAddress())
+                .build();
 
         //주문상품 생성   셍상 메서드를 사용해보자
         OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count);  // 엔티티가 비즈니스 로직을 가지고 객체 지향의 특성을 적극 활용하는 것을 도메인 모델 패턴이라함.

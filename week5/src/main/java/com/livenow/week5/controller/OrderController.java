@@ -37,7 +37,6 @@ public class OrderController {
     public String order(@RequestParam("memberId") Long memberId,    //파라미터를 memberId로해서 받았다
                         @RequestParam("itemId") Long itemId,        //RequestParam은 templates의 select옵션의 memberId나
                         @RequestParam("count") int count) {          //ItemId의 선택된 value가 submit으로 넘어오게 되는것
-
         orderService.order(memberId, itemId, count);    //이러면 order로직이 돌아감, 이렇게 비지니스 로직으로 보내게 짜는게 좋다.
         return "redirect:/orders";                      //여려개 상품을 선택할 수 있게 해보자!
     }

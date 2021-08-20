@@ -55,12 +55,15 @@ public class Order {
 
     public void addOrderItem(OrderItem orderItem) {
         orderItems.add(orderItem);
-        orderItem.setOrder(this);
+        orderItem.builder()
+                .order(this)
+                .build();
     }
 
     public void setDelivery(Delivery delivery) {
-        this.delivery = delivery;
-        delivery.setOrder(this);
+        this.delivery = delivery.builder()
+                .order(this)
+                .build();
     }
 
     //==생성 메서드 ==// //생성하는 지점을 변경하자면 여기만 바꾸면 됨

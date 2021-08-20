@@ -1,15 +1,17 @@
 package com.livenow.week5.domain;
 
+import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 import static javax.persistence.FetchType.LAZY;
 
-@Entity
 @Getter
-@Setter
+@Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Delivery {
 
     @Id
@@ -25,4 +27,12 @@ public class Delivery {
 
     @Enumerated(EnumType.STRING)   //ordinal은 순자로 들어감 123, 중간에 다른 상태가 생가면 망함 그래서 String으로 함
     private DeliveryStatus status; //READY, COMP
+
+    @Builder
+    public Delivery(Long id, Order order, Address address, DeliveryStatus status) {
+        this.id = id;
+        this.order = order;
+        this.address = address;
+        this.status = status;
+    }
 }

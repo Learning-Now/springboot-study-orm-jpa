@@ -1,8 +1,10 @@
 package com.livenow.week5.domain;
 
 import com.livenow.week5.domain.item.Item;
+import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,9 +12,9 @@ import java.util.List;
 
 import static javax.persistence.FetchType.LAZY;
 
-@Entity
 @Getter
-@Setter
+@Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Category {
 
     @Id
@@ -35,9 +37,19 @@ public class Category {
     @OneToMany(mappedBy = "parent")
     private List<Category> child = new ArrayList<>();
 
+    @Builder
+    public Category(Long id, String name, List<Item> items, Category parent) {
+        this.id = id;
+        this.name = name;
+        this.items = items;
+        this.parent = parent;
+    }
+
     //=연관관계 메서드 ==//양방향일때 연관관계를 한번에 설정
     public void addChildCategory(Category child) {
         this.child.add(child);
-        child.setParent(this);
+        child.builder()
+                .parent(this)
+                .build();
     }
 }
