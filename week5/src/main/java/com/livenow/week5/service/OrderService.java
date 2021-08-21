@@ -5,10 +5,7 @@ import com.livenow.week5.domain.Member;
 import com.livenow.week5.domain.Order;
 import com.livenow.week5.domain.OrderItem;
 import com.livenow.week5.domain.item.Item;
-import com.livenow.week5.repository.ItemJpaRepository;
-import com.livenow.week5.repository.MemberJpaRepository;
-import com.livenow.week5.repository.OrderRepository;
-import com.livenow.week5.repository.OrderSearch;
+import com.livenow.week5.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +18,7 @@ import java.util.List;
 public class OrderService {
 
     private final OrderRepository orderRepository;
+    private final OrderJpaRepository orderJpaRepository;
     private final MemberJpaRepository memberJpaRepository;
     private final ItemJpaRepository itemJpaRepository;
 
@@ -45,7 +43,7 @@ public class OrderService {
         Order order = Order.createOrder(member, delivery, orderItem);     // 엔티티가 비즈니스 로직을 가지고 객체 지향의 특성을 적극 활용하는 것을 도메인 모델 패턴이라함.
 
         //주문 저장
-        orderRepository.save(order);        //이전에 cascade를 해줬기 때문에 이것만 해줘도 orderitem 랑 delivery가 자동으로 persist가됨
+        orderJpaRepository.save(order);        //이전에 cascade를 해줬기 때문에 이것만 해줘도 orderitem 랑 delivery가 자동으로 persist가됨
         //cascade를  언제써야할가? 주인이 private owner일 때만
         return order.getId();          //lifecycle이 같이 persist를 할때 주로 씀
     }
@@ -56,7 +54,7 @@ public class OrderService {
     @Transactional
     public void cancelOrder(Long orderId) {
         //주문 엔티티 조회
-        Order order = orderRepository.findOne(orderId);
+        Order order = orderJpaRepository.findById(orderId).get();
         //주문 취소
         order.cancel();
     }
