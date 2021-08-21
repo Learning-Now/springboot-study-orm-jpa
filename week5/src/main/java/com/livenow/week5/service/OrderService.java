@@ -5,8 +5,8 @@ import com.livenow.week5.domain.Member;
 import com.livenow.week5.domain.Order;
 import com.livenow.week5.domain.OrderItem;
 import com.livenow.week5.domain.item.Item;
-import com.livenow.week5.repository.ItemRepository;
-import com.livenow.week5.repository.MemberRepository;
+import com.livenow.week5.repository.ItemJpaRepository;
+import com.livenow.week5.repository.MemberJpaRepository;
 import com.livenow.week5.repository.OrderRepository;
 import com.livenow.week5.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
@@ -21,8 +21,8 @@ import java.util.List;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final MemberRepository memberRepository;
-    private final ItemRepository itemRepository;
+    private final MemberJpaRepository memberJpaRepository;
+    private final ItemJpaRepository itemJpaRepository;
 
     /**
      * 주문
@@ -30,8 +30,8 @@ public class OrderService {
     @Transactional
     public Long order(Long memberId, Long itemId, int count) {
         // 엔티티 조회
-        Member member = memberRepository.findOne(memberId);
-        Item item = itemRepository.findOne(itemId);
+        Member member = memberJpaRepository.findById(memberId).get();
+        Item item = itemJpaRepository.findById(itemId).get();
 
         //배송 정보 생성
         Delivery delivery = Delivery.builder()

@@ -1,7 +1,7 @@
 package com.livenow.week5.service;
 
 import com.livenow.week5.domain.item.Item;
-import com.livenow.week5.repository.ItemRepository;
+import com.livenow.week5.repository.ItemJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,11 +13,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ItemService {
 
-    private final ItemRepository itemRepository;
+    private final ItemJpaRepository itemJpaRepository;
 
     @Transactional // readonly가 true이기때문
     public void saveItem(Item item) {
-        itemRepository.save(item);
+        itemJpaRepository.save(item);
     }
 
     /**
@@ -29,7 +29,7 @@ public class ItemService {
      */
     @Transactional
     public void updateItem(Long itemId, String name, int price, int stockQuantity) {
-        Item findItem = itemRepository.findOne(itemId);
+        Item findItem = itemJpaRepository.findById(itemId).get();
         findItem.updateItem(name, price, stockQuantity);
     }
 
@@ -48,10 +48,10 @@ public class ItemService {
         return findItem;
     }*/
     public List<Item> findItems() {
-        return itemRepository.findAll();
+        return itemJpaRepository.findAll();
     }
 
     public Item findOne(Long id) {
-        return itemRepository.findOne(id);
+        return itemJpaRepository.findById(id).get();
     }
 }
