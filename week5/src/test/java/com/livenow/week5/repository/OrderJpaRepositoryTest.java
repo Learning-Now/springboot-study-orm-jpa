@@ -54,4 +54,34 @@ class OrderJpaRepositoryTest {
         }
     }
 
+    @Test
+    void findByName() {
+        //given
+        Member member = Member.builder()
+                .name("동현")
+                .address(new Address("부평", "안남로","123"))
+                .build();
+        memberJpaRepository.save(member);
+        Order order = Order.createOrder(member, Delivery.builder()
+                .status(DeliveryStatus.READY)
+                .address(new Address("부평", "안남로","123"))
+                .build());
+        OrderItem orderItem = OrderItem.createOrderItem(Book.builder()
+                .author("김영한")
+                .name("JPA")
+                .isbn("123")
+                .stockQuantity(100)
+                .build(), 1000, 10);
+        //order.addOrderItem(orderItem);
+        orderJpaRepository.save(order);
+
+        //when
+        List<Order> orders = orderJpaRepository.findByMember(member);
+
+        //then
+        for (Order order1 : orders) {
+            System.out.println(order1.getMember().getName());
+        }
+    }
+
 }
