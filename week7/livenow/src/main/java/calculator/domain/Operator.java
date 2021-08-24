@@ -1,12 +1,10 @@
 package calculator.domain;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Operator {
-    private static final List<String> OPERATORS = Arrays.asList("+", "-", "*", "/", ",", ";");
+    private static final List<String> OPERATORS = Arrays.asList(",", ";");
     private final String value;
 
     public Operator(String value) {
