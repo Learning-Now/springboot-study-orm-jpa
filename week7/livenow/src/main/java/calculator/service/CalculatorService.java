@@ -9,18 +9,23 @@ import java.util.regex.Pattern;
 public class CalculatorService {
     private final String PATTERN ="//(.)\n(.*)";
     private final int GET_DELIMITER_COUNT = 1;
+    private Delimiter customDelimiter;
 
-    public void stringCalculator() {
-        validateNull(Input.BufferInput());
+    public void stringCalculator(String bufferInput) {
+        //bufferInput = Input.BufferInput();
+        validateNull(bufferInput);
+        checkCustomDelimiter(bufferInput);
     }
 
-    public Delimiter checkCustomDelimiter(String inputString) {
+    public boolean checkCustomDelimiter(String inputString) {
         Pattern pattern = Pattern.compile(PATTERN);
         Matcher matcher = pattern.matcher(inputString);
         if (!matcher.find()) {
             validateHaveDelimiter(inputString);
+            return false;
         }
-        return new Delimiter(matcher.group(GET_DELIMITER_COUNT));
+        customDelimiter = new Delimiter(matcher.group(GET_DELIMITER_COUNT));
+        return true;
     }
 
     private void validateNull(String inputString) {
@@ -34,8 +39,8 @@ public class CalculatorService {
     }
 
     private void validateHaveDelimiter(String inputString) {
-        if (!inputString.contains(",|;")) {
-            throw new IllegalArgumentException("Error : 구분자가 존재하지 않음");
+        if (!inputString.matches("(.*),(.*)|(.*);(.*)")) {
+            throw new IllegalArgumentException("Error : 구문자 존재 X");
         };
     }
 }

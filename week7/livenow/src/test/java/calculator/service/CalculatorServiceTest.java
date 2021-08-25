@@ -30,7 +30,14 @@ class CalculatorServiceTest {
         String inputString1 = "1,2";
         String inputString2 = "//;\n1;2;3";
         CalculatorService calculatorService = new CalculatorService();
-        Delimiter delimiter = calculatorService.checkCustomDelimiter(inputString2);
+        assertThat(calculatorService.checkCustomDelimiter(inputString2)).isEqualTo(true);
+    }
 
+    @Test
+    void checkValidateHaveDelimiter() {
+        String inputString1 = "123";
+        String inputString2 = "//;\n1;2;3";
+        CalculatorService calculatorService = new CalculatorService();
+        calculatorService.stringCalculator(inputString2);
     }
 }
