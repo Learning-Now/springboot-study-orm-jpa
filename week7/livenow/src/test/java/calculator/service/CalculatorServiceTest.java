@@ -27,17 +27,23 @@ class CalculatorServiceTest {
 
     @Test
     void checkCustomDelimiter() {
+        //given
         String inputString1 = "1,2";
         String inputString2 = "//;\n1;2;3";
+        //when
         CalculatorService calculatorService = new CalculatorService();
+        //then
         assertThat(calculatorService.checkCustomDelimiter(inputString2)).isEqualTo(true);
     }
 
     @Test
     void checkValidateHaveDelimiter1() throws IllegalArgumentException {
+        //given
         String inputString1 = "123";
         String inputString2 = "//;\n1;2;3";
+        //when
         CalculatorService calculatorService = new CalculatorService();
+        //then
         assertThrows(IllegalArgumentException.class, () -> {
             calculatorService.stringCalculator(inputString2);
         });
@@ -45,9 +51,12 @@ class CalculatorServiceTest {
 
     @Test
     void checkValidateHaveDelimiter2() throws IllegalArgumentException{
+        //given
         String inputString1 = "1,23";
         String inputString2 = "//;\n1;2;3";
+        //when
         CalculatorService calculatorService = new CalculatorService();
+        //then
         assertThrows(IllegalArgumentException.class, () -> {
             calculatorService.stringCalculator(inputString1);
         });
@@ -55,9 +64,12 @@ class CalculatorServiceTest {
 
     @Test
     void checkValidateHaveDelimiter3() throws IllegalArgumentException{
+        //given
         String inputString1 = "1,2;3";
         String inputString2 = "//;\n1;2;3";
+        //when
         CalculatorService calculatorService = new CalculatorService();
+        //then
         assertThrows(IllegalArgumentException.class, () -> {
             calculatorService.stringCalculator(inputString1);
         });
@@ -65,9 +77,12 @@ class CalculatorServiceTest {
 
     @Test
     void checkValidateHaveDelimiter4() throws IllegalArgumentException{
+        //given
         String inputString1 = "123";
         String inputString2 = "//;\n1;2;3";
+        //when
         CalculatorService calculatorService = new CalculatorService();
+        //then
         assertThrows(IllegalArgumentException.class, () -> {
             calculatorService.stringCalculator(inputString1);
         });
