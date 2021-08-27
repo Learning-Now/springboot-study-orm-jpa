@@ -1,20 +1,38 @@
 package calculator.service;
 
 import calculator.domain.Delimiter;
+import calculator.domain.Numbers;
 import calculator.util.Input;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CalculatorService {
-    private final String PATTERN ="//(.)\n(.*)";
-    private final int GET_DELIMITER_COUNT = 1;
+    private static final String PATTERN ="//(.)\n(.*)";
+    private static final int GET_DELIMITER_COUNT = 1;
+    private static Delimiter basicDelimiter = new Delimiter("(.*),(.*)|(.*);(.*)");
     private Delimiter customDelimiter;
 
-    public void stringCalculator(String bufferInput) {
+
+    public int stringCalculator(String bufferInput) {
         //bufferInput = Input.BufferInput();
         validateNull(bufferInput);
         checkCustomDelimiter(bufferInput);
+        return calculator(splitBufferInput(bufferInput));
+    }
+
+    private int calculator(Numbers splitBufferInput) {
+        return splitBufferInput.add();
+    }
+
+    public Numbers splitBufferInput(String bufferInput) {
+        if (customDelimiter == null) {
+            for (String s : basicDelimiter.split(bufferInput)) {
+                System.out.println(s);
+            }
+            return new Numbers(basicDelimiter.split(bufferInput));
+        }
+        return new Numbers(customDelimiter.split(bufferInput.split("\n")[1]));
     }
 
     public boolean checkCustomDelimiter(String inputString) {
