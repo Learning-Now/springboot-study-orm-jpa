@@ -6,4 +6,8 @@ public class Delimiter {
     public Delimiter(String value) {
         this.value = value;
     }
+
+    public String[] split(String bufferInput) {
+        return bufferInput.split(value);
+    }
 }
