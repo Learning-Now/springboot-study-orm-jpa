@@ -87,4 +87,15 @@ class CalculatorServiceTest {
             calculatorService.stringCalculator(inputString1);
         });
     }
+
+    @Test
+    void getCalculateResult() {
+        //given
+        String inputString1 = "123";
+        String inputString2 = "//;\n1;2;3";
+        //when
+        CalculatorService calculatorService = new CalculatorService();
+        //then
+        System.out.println(calculatorService.stringCalculator(inputString2));
+    }
 }
