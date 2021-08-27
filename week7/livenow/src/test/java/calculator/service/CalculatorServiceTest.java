@@ -34,10 +34,42 @@ class CalculatorServiceTest {
     }
 
     @Test
-    void checkValidateHaveDelimiter() {
+    void checkValidateHaveDelimiter1() throws IllegalArgumentException {
         String inputString1 = "123";
         String inputString2 = "//;\n1;2;3";
         CalculatorService calculatorService = new CalculatorService();
-        calculatorService.stringCalculator(inputString2);
+        assertThrows(IllegalArgumentException.class, () -> {
+            calculatorService.stringCalculator(inputString2);
+        });
+    }
+
+    @Test
+    void checkValidateHaveDelimiter2() throws IllegalArgumentException{
+        String inputString1 = "1,23";
+        String inputString2 = "//;\n1;2;3";
+        CalculatorService calculatorService = new CalculatorService();
+        assertThrows(IllegalArgumentException.class, () -> {
+            calculatorService.stringCalculator(inputString1);
+        });
+    }
+
+    @Test
+    void checkValidateHaveDelimiter3() throws IllegalArgumentException{
+        String inputString1 = "1,2;3";
+        String inputString2 = "//;\n1;2;3";
+        CalculatorService calculatorService = new CalculatorService();
+        assertThrows(IllegalArgumentException.class, () -> {
+            calculatorService.stringCalculator(inputString1);
+        });
+    }
+
+    @Test
+    void checkValidateHaveDelimiter4() throws IllegalArgumentException{
+        String inputString1 = "123";
+        String inputString2 = "//;\n1;2;3";
+        CalculatorService calculatorService = new CalculatorService();
+        assertThrows(IllegalArgumentException.class, () -> {
+            calculatorService.stringCalculator(inputString1);
+        });
     }
 }
