@@ -13,4 +13,8 @@ public class Number {
             throw new RuntimeException("Error : 음수 입력");
         }
     }
+
+    protected int getValue() {
+        return value;
+    }
 }
