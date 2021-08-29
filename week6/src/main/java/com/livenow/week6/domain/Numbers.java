@@ -1,11 +1,7 @@
 package com.livenow.week6.domain;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
 import java.util.List;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Numbers {
 
     private List<Number> numbers;

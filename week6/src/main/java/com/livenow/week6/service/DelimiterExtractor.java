@@ -1,14 +1,15 @@
 package com.livenow.week6.service;
 
 import com.livenow.week6.domain.CustomDelimiter;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DelimiterExtractor {
 
     private static final String SEPARATOR_START = "//";
     private static final String SEPARATOR_END = "\\n";
+
+    private DelimiterExtractor() {
+
+    }
 
     public static CustomDelimiter creatCustomDelimiter(String value) {
         String customDelimiterStart = value.substring(0, 2);
