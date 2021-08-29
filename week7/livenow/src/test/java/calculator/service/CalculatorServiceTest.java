@@ -1,11 +1,7 @@
 package calculator.service;
 
-import calculator.domain.Delimiter;
-import calculator.domain.Operator;
-import calculator.util.Input;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.AssertionsForClassTypes.in;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
