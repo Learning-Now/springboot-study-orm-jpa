@@ -8,11 +8,15 @@ public class StringCalculator {
     }
 
     public int add(String input) {
-        if (input.contains(",")) {
-            String[] numbers = input.split(",");
-            return sum(numbers);
+        if (input == ""){
+            return 0;
         }
-        return Integer.parseInt(input);
+        return sum(split(input));
+    }
+
+    private String[] split(String input) {
+        String[] numbers = input.split("[,;]");
+        return numbers;
     }
 
     private int sum(String[] numbers) {

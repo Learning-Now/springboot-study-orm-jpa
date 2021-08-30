@@ -5,9 +5,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.AssertionsForClassTypes.in;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class StringCalculatorTest {
 
@@ -38,5 +36,26 @@ class StringCalculatorTest {
         int result = stringCalculator.add(input);
         //then
         assertThat(result).isEqualTo(3);
+    }
+
+    @DisplayName("1,2,3 입력 받았을 경우 테스트")
+    @Test
+    void inputMultipleNumbersWithPattern() {
+        //given
+        String input = "1,2,3";
+        //when
+        int result = stringCalculator.add(input);
+        //then
+        assertThat(result).isEqualTo(6);
+    }
+    @DisplayName("1,2;3 입력 받았을 경우 테스트")
+    @Test
+    void inputMultipleNumbersWithDefaultPattern() {
+        //given
+        String input = "1,2;3";
+        //when
+        int result = stringCalculator.add(input);
+        //then
+        assertThat(result).isEqualTo(6);
     }
 }
