@@ -70,4 +70,15 @@ class StringCalculatorTest {
         //then
         assertThat(result).isEqualTo(1);
     }
+
+    @DisplayName("커스텀 구분자로 복수의 수 연산하기")
+    @Test
+    void inputCustomDelimiterWithMultipleNumbers() {
+        //given
+        String input = "//!\n1!2!3";
+        //when
+        int result = stringCalculator.add(input);
+        //then
+        assertThat(result).isEqualTo(6);
+    }
 }

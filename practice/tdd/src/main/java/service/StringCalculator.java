@@ -11,6 +11,7 @@ public class StringCalculator {
     private static final String CUSTOM_PATTERN = "^//(.)\n";
     private static final int GET_DELIMITER_COUNT = 1;
     private Delimiter customDelimiter;
+    private Delimiter defaultDelimiter = new Delimiter(DEFAULT_PATTERN);
 
     public StringCalculator() {
     }
@@ -20,14 +21,14 @@ public class StringCalculator {
             return 0;
         }
         if (checkCustom(input)) {
-            return sum(split(splitInputByCustomPattern(input),customDelimiter.getValue()));
+            return sum(customDelimiter.split(splitInputByCustomPattern(input)));
         }
-        return sum(split(input,DEFAULT_PATTERN));
+        return sum(defaultDelimiter.split(input));
     }
 
     private String splitInputByCustomPattern(String input) {
-        String[] split = input.split("\n");
-        return split[1];
+        String[] split = input.split(CUSTOM_PATTERN);
+        return split[GET_DELIMITER_COUNT];
     }
 
     private boolean checkCustom(String input) {
@@ -38,11 +39,6 @@ public class StringCalculator {
             return true;
         }
         return false;
-    }
-
-    private String[] split(String input, String delimiter) {
-        String[] numbers = input.split(delimiter);
-        return numbers;
     }
 
     private int sum(String[] numbers) {

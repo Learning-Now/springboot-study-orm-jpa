@@ -25,4 +25,9 @@ public class Delimiter {
     public String getValue() {
         return value;
     }
+
+    public String[] split(String input) {
+        String[] numbers = input.split(this.value);
+        return numbers;
+    }
 }
