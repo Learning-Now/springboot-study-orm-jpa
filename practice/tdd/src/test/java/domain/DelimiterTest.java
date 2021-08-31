@@ -3,7 +3,10 @@ package domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.in;
 
 
 class DelimiterTest {
@@ -16,6 +19,18 @@ class DelimiterTest {
         //when
         //then
         assertThat(delimiter).isEqualTo(new Delimiter(";"));
+    }
+
+    @DisplayName("split 테스트")
+    @Test
+    void splitTest() {
+        //given
+        Delimiter delimiter = new Delimiter(";");
+        String input = "1;2;3;4";
+        //when
+        String[] split = delimiter.split(input);
+        //then
+        assertThat(Arrays.stream(split).count()).isEqualTo(4);
     }
 
 }
