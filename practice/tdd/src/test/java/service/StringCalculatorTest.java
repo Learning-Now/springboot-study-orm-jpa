@@ -48,6 +48,7 @@ class StringCalculatorTest {
         //then
         assertThat(result).isEqualTo(6);
     }
+
     @DisplayName("1,2;3 입력 받았을 경우 테스트")
     @Test
     void inputMultipleNumbersWithDefaultPattern() {
@@ -57,5 +58,16 @@ class StringCalculatorTest {
         int result = stringCalculator.add(input);
         //then
         assertThat(result).isEqualTo(6);
+    }
+
+    @DisplayName("커스텀 구분자 인식하기")
+    @Test
+    void inputCustomDelimiter() {
+        //given
+        String input = "//!\n1";
+        //when
+        int result = stringCalculator.add(input);
+        //then
+        assertThat(result).isEqualTo(1);
     }
 }
