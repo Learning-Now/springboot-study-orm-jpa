@@ -32,5 +32,4 @@ class DelimiterTest {
         //then
         assertThat(numbers.count()).isEqualTo(4);
     }
-
 }

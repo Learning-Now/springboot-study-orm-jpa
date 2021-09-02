@@ -9,6 +9,11 @@ public class Delimiter {
         this.value = value;
     }
 
+    public String[] split(String input) {
+        String[] numbers = input.split(this.value);
+        return numbers;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -20,10 +25,5 @@ public class Delimiter {
     @Override
     public int hashCode() {
         return Objects.hash(value);
-    }
-
-    public String[] split(String input) {
-        String[] numbers = input.split(this.value);
-        return numbers;
     }
 }
