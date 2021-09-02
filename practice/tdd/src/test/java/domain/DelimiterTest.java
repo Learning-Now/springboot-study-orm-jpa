@@ -28,9 +28,9 @@ class DelimiterTest {
         Delimiter delimiter = new Delimiter(";");
         String input = "1;2;3;4";
         //when
-        String[] split = delimiter.split(input);
+        Numbers numbers = new Numbers(delimiter.split(input));
         //then
-        assertThat(Arrays.stream(split).count()).isEqualTo(4);
+        assertThat(numbers.count()).isEqualTo(4);
     }
 
 }

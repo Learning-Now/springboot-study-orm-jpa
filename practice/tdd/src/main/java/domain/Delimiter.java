@@ -22,10 +22,6 @@ public class Delimiter {
         return Objects.hash(value);
     }
 
-    public String getValue() {
-        return value;
-    }
-
     public String[] split(String input) {
         String[] numbers = input.split(this.value);
         return numbers;
