@@ -28,6 +28,13 @@ public class Numbers {
     }
 
     public int count() {
-        return (int) numbers.stream().count();
+        return (int) numbers.stream()
+                                .count();
+    }
+
+    public int sum() {
+        return numbers.stream()
+                .mapToInt(number -> number.getValue())
+                .sum();
     }
 }

@@ -21,9 +21,11 @@ public class StringCalculator {
             return 0;
         }
         if (checkCustom(input)) {
-            return sum(customDelimiter.split(splitInputByCustomPattern(input)));
+            return customDelimiter.split(splitInputByCustomPattern(input))
+                                    .sum();
         }
-        return sum(defaultDelimiter.split(input));
+        return defaultDelimiter.split(input)
+                                .sum();
     }
 
     private String splitInputByCustomPattern(String input) {
@@ -39,11 +41,5 @@ public class StringCalculator {
             return true;
         }
         return false;
-    }
-
-    private int sum(String[] numbers) {
-        return Arrays.stream(numbers)
-                .mapToInt(Integer::parseInt)
-                .sum();
     }
 }

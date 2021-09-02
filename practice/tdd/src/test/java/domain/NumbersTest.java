@@ -19,4 +19,18 @@ class NumbersTest {
         //then
         assertThat(numbers.count()).isEqualTo(3);
     }
+
+    @DisplayName("numbers sum테스트")
+    @Test
+    void numbersSum() {
+        //given
+        String [] stringNumbers = {"1","2","3"};
+
+        //when
+        Numbers numbers = new Numbers(stringNumbers);
+        int result = numbers.sum();
+
+        //then
+        assertThat(result).isEqualTo(6);
+    }
 }

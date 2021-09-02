@@ -9,8 +9,8 @@ public class Delimiter {
         this.value = value;
     }
 
-    public String[] split(String input) {
-        String[] numbers = input.split(this.value);
+    public Numbers split(String input) {
+        Numbers numbers = new Numbers(input.split(this.value));
         return numbers;
     }
 

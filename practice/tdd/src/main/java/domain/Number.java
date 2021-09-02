@@ -1,9 +1,13 @@
 package domain;
 
 public class Number {
-    private final String value;
+    private final int value;
 
     public Number(String stringNumber) {
-        value = stringNumber;
+        value = Integer.parseInt(stringNumber);
+    }
+
+    public int getValue() {
+        return value;
     }
 }
