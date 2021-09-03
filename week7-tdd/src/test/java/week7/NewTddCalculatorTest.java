@@ -4,6 +4,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class NewTddCalculatorTest {
@@ -101,5 +105,16 @@ public class NewTddCalculatorTest {
         int result = newTddCalculator.add(data);
         // then
         assertThat(result).isEqualTo(20);
+    }
+    
+    @Test
+    @DisplayName("커스텀 구분자 지정 후 더한 값 출력")
+    public void setCustomSeparatorTest() {
+        //given
+        String data = "//;\n1;2;3";
+        // when
+        int result = newTddCalculator.add(data);
+        // then
+        assertThat(result).isEqualTo(6);
     }
 }
