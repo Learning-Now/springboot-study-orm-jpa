@@ -20,16 +20,11 @@ public class StringCalculator {
             return 0;
         }
         if (checkCustom(input)) {
-            return customDelimiter.split(splitInputByCustomPattern(input))
+            return customDelimiter.split(input)
                                     .sum();
         }
         return defaultDelimiter.split(input)
                                 .sum();
-    }
-
-    private String splitInputByCustomPattern(String input) {
-        String[] split = input.split(CUSTOM_PATTERN);
-        return split[GET_DELIMITER_COUNT];
     }
 
     private boolean checkCustom(String input) {
