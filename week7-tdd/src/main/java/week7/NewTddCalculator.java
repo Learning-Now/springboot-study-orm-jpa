@@ -17,7 +17,16 @@ public class NewTddCalculator {
         List<String> numbers = Arrays.asList(data.split(delimiter));
         int result = 0;
         for (String number : numbers) {
-            result += Integer.parseInt(number);
+            int intNumber;
+            try {
+                intNumber = Integer.parseInt(number);
+            } catch (NumberFormatException e) {
+                throw new RuntimeException();
+            }
+            if (intNumber <= 0) {
+                throw new RuntimeException();
+            }
+            result += intNumber;
         }
         return result;
     }
