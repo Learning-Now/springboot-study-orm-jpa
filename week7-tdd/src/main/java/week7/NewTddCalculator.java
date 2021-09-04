@@ -1,12 +1,9 @@
 package week7;
 
 import week7.domain.Delimiter;
-import week7.domain.Number;
 import week7.domain.Numbers;
 import week7.serivce.DelimiterExtractor;
-
-import java.util.Arrays;
-import java.util.stream.Collectors;
+import week7.serivce.Splitter;
 
 public class NewTddCalculator {
 
@@ -22,9 +19,7 @@ public class NewTddCalculator {
             DELIMITER.customize(DelimiterExtractor.makeDelimiter(data));
             data = data.substring(data.indexOf(LAST_SEPARATOR)+1);
         }
-        Numbers numbers = new Numbers(Arrays.stream(data.split(DELIMITER.getValue()))
-                .map(Number::new)
-                .collect(Collectors.toList()));
+        Numbers numbers = Splitter.split(data, DELIMITER);
         return numbers.sum();
     }
 }
