@@ -1,9 +1,10 @@
 package week7;
 
 import week7.domain.Number;
+import week7.domain.Numbers;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.stream.Collectors;
 
 public class NewTddCalculator {
 
@@ -16,12 +17,9 @@ public class NewTddCalculator {
             delimiter += "|" + data.substring(data.indexOf("//")+2, data.indexOf("\n"));
             data = data.substring(data.indexOf("\n")+1);
         }
-        List<String> numbers = Arrays.asList(data.split(delimiter));
-        int result = 0;
-        for (String number : numbers) {
-            Number intNumber = new Number(number);
-            result += intNumber.getValue();
-        }
-        return result;
+        Numbers numbers = new Numbers(Arrays.stream(data.split(delimiter))
+                .map(Number::new)
+                .collect(Collectors.toList()));
+        return numbers.sum();
     }
 }
