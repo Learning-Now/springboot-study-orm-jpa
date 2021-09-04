@@ -4,11 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.*;
 
 public class NewTddCalculatorTest {
 
@@ -116,5 +112,27 @@ public class NewTddCalculatorTest {
         int result = newTddCalculator.add(data);
         // then
         assertThat(result).isEqualTo(6);
+    }
+    
+    @Test
+    @DisplayName("숫자 이외의 값 전달 시 예외 발생")
+    public void makeNoNumberErrorTest() {
+        //given
+        String data = "a,1,2";
+        // when
+        Throwable thrown = catchThrowable(() -> {newTddCalculator.add(data);});
+        // then
+        assertThat(thrown).isInstanceOf(RuntimeException.class);
+    }
+
+    @Test
+    @DisplayName("음수 값 전달 시 예외 발생")
+    public void makeNegativeNumberErrorTest() {
+        //given
+        String data = "-1,1,2";
+        // when
+        Throwable thrown = catchThrowable(() -> {newTddCalculator.add(data);});
+        // then
+        assertThat(thrown).isInstanceOf(RuntimeException.class);
     }
 }
