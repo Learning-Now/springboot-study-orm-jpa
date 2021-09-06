@@ -8,10 +8,24 @@ import java.util.stream.Collectors;
 public class Numbers {
     private final List<Number> numbers;
 
-    public Numbers(String [] stringNumbers) {
-        this.numbers = Arrays.stream(stringNumbers)
-                                .map(stringNumber -> new Number(stringNumber))
-                                .collect(Collectors.toList());
+    public Numbers(String[] stringArrayNumbers) {
+        this(arrayToList(stringArrayNumbers));
+    }
+
+    public Numbers(List<Number> numbers) {
+        this.numbers = numbers;
+    }
+
+    public int sum() {
+        return numbers.stream()
+                .mapToInt(Number::getValue)
+                .sum();
+    }
+
+    private static List<Number> arrayToList(String[] stringNumbers) {
+        return Arrays.stream(stringNumbers)
+                .map(stringNumber -> new Number(stringNumber))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -25,16 +39,5 @@ public class Numbers {
     @Override
     public int hashCode() {
         return Objects.hash(numbers);
-    }
-
-    public int count() {
-        return (int) numbers.stream()
-                                .count();
-    }
-
-    public int sum() {
-        return numbers.stream()
-                .mapToInt(number -> number.getValue())
-                .sum();
     }
 }
