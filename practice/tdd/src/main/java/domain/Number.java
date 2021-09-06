@@ -4,8 +4,8 @@ public class Number {
     private static final String NUMBER_PATTERN = "^[0-9]*$";
     private final int value;
 
-    public Number(String stringNumber) {
-        this(stringToInt(stringNumber));
+    public Number(String number) {
+        this(stringToInt(number));
     }
 
     public Number(int number) {
