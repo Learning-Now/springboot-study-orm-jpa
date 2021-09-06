@@ -2,6 +2,8 @@ package domain;
 
 public class Number {
     private static final String NUMBER_PATTERN = "^[0-9]*$";
+    private static final String RUNTIME_ERROR_MESSAGE = "Error : 음수는 입력될수 없음.";
+    private static final String NUMBER_ERROR_MESSAGE = "Error : 숫자가 아닌값이 입력되었습니다.";
     private final int value;
 
     public Number(String number) {
@@ -9,6 +11,7 @@ public class Number {
     }
 
     public Number(int number) {
+        validateNumber(number);
         this.value = number;
     }
 
@@ -17,12 +20,23 @@ public class Number {
     }
 
     private static int stringToInt(String stringNumber) {
+        validateParseNumber(stringNumber);
         return Integer.parseInt(stringNumber);
     }
 
-    private void validateNumber(String stringNumber) {
-        if(!stringNumber.matches(NUMBER_PATTERN)) {
-            throw new IllegalArgumentException("Error : 숫자가 아닌값이 입력되었습니다.");
+    private static void validateParseNumber(String number) {
+        if(isNumber(number)) {
+            throw new IllegalArgumentException(NUMBER_ERROR_MESSAGE);
         };
+    }
+
+    private static boolean isNumber(String number) {
+        return !number.matches(NUMBER_PATTERN);
+    }
+
+    private void validateNumber(int number) {
+        if (number < 0) {
+            throw new RuntimeException(RUNTIME_ERROR_MESSAGE);
+        }
     }
 }
