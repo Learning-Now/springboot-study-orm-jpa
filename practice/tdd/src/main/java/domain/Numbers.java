@@ -1,5 +1,7 @@
 package domain;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -8,12 +10,12 @@ import java.util.stream.Collectors;
 public class Numbers {
     private final List<Number> numbers;
 
-    public Numbers(String[] stringArrayNumbers) {
-        this(arrayToList(stringArrayNumbers));
+    public Numbers(String[] numbers) {
+        this(arrayToList(numbers));
     }
 
     public Numbers(List<Number> numbers) {
-        this.numbers = numbers;
+        this.numbers = new ArrayList<>(numbers);
     }
 
     public int sum() {
@@ -22,9 +24,9 @@ public class Numbers {
                 .sum();
     }
 
-    private static List<Number> arrayToList(String[] stringNumbers) {
-        return Arrays.stream(stringNumbers)
-                .map(stringNumber -> new Number(stringNumber))
+    private static List<Number> arrayToList(String[] numbers) {
+        return Arrays.stream(numbers)
+                .map(Number::new)
                 .collect(Collectors.toList());
     }
 
