@@ -9,10 +9,6 @@ public class Delimiter {
         this.value = DEFAULT_DELIMITER;
     }
 
-    public Delimiter(String value) {
-        this.value = value;
-    }
-
     public void customize(String customizedDelimiter) {
         this.value = customizedDelimiter;
     }
