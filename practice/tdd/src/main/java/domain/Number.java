@@ -4,6 +4,7 @@ public class Number {
     private static final String NUMBER_PATTERN = "^[0-9]*$";
     private static final String RUNTIME_ERROR_MESSAGE = "Error : 음수는 입력될수 없음.";
     private static final String NUMBER_ERROR_MESSAGE = "Error : 숫자가 아닌값이 입력되었습니다.";
+    private static final int ZERO = 0;
     private final int value;
 
     public Number(String number) {
@@ -35,7 +36,7 @@ public class Number {
     }
 
     private void validateNumber(int number) {
-        if (number < 0) {
+        if (number < ZERO) {
             throw new RuntimeException(RUNTIME_ERROR_MESSAGE);
         }
     }
