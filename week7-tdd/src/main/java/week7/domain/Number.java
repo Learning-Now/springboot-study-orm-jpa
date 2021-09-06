@@ -4,21 +4,15 @@ public class Number {
 
     private int value;
 
-    public Number(String value) {
-        this.value = validate(value);
+    public Number(int value) {
+        validate(value);
+        this.value = value;
     }
 
-    private int validate(String value) {
-        int number;
-        try {
-            number = Integer.parseInt(value);
-        } catch (NumberFormatException e) {
-            throw new RuntimeException();
+    private void validate(int value) {
+        if (value <= 0) {
+            throw new RuntimeException("입력 값에 음수가 포함되어 있습니다.");
         }
-        if (number <= 0) {
-            throw new RuntimeException();
-        }
-        return number;
     }
 
     public int getValue() {
