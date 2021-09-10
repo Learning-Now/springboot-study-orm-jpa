@@ -39,7 +39,7 @@ public class Number {
 
     private void validateNumber(int number) {
         if (number < ZERO) {
-            throw new RuntimeException(RUNTIME_ERROR_MESSAGE);
+            throw new IllegalArgumentException(RUNTIME_ERROR_MESSAGE);
         }
     }
 

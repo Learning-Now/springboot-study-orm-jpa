@@ -24,8 +24,7 @@ class DelimiterTest {
         Delimiter delimiter = new Delimiter(";");
         String input = "1;2;3;4";
         //when
-        Numbers numbers = delimiter.split(input);
+        delimiter.split(input);
         //then
-        assertThat(numbers.count()).isEqualTo(4);
     }
 }
