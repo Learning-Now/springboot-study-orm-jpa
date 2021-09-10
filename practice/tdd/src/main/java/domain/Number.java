@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Objects;
+
 public class Number {
     private static final String NUMBER_PATTERN = "^[0-9]*$";
     private static final String RUNTIME_ERROR_MESSAGE = "Error : 음수는 입력될수 없음.";
@@ -39,5 +41,18 @@ public class Number {
         if (number < ZERO) {
             throw new RuntimeException(RUNTIME_ERROR_MESSAGE);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Number number = (Number) o;
+        return value == number.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }
