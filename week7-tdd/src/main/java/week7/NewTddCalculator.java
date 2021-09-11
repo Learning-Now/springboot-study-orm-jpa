@@ -1,10 +1,8 @@
 package week7;
 
-import week7.domain.Delimiter;
+import week7.domain.*;
 import week7.domain.Number;
-import week7.domain.Numbers;
 import week7.serivce.DelimiterExtractor;
-import week7.serivce.Splitter;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,18 +12,18 @@ public class NewTddCalculator {
 
     private static final String FIRST_SEPARATOR = "//";
     private static final String LAST_SEPARATOR = "\n";
-    private static final Delimiter DELIMITER = new Delimiter();
+    private static final Delimiter DEFAULT_DELIMITER = new DefaultDelimiter();
 
     public int add(String data) {
         if (data.isEmpty()) {
             return 0;
         }
         if (data.startsWith(FIRST_SEPARATOR)) {
-            DELIMITER.customize(DelimiterExtractor.makeDelimiter(FIRST_SEPARATOR, LAST_SEPARATOR, data));
+            CustomizedDelimiter customizedDelimiter = new CustomizedDelimiter(DelimiterExtractor.makeDelimiter(FIRST_SEPARATOR, LAST_SEPARATOR, data));
             data = data.substring(data.indexOf(LAST_SEPARATOR)+LAST_SEPARATOR.length());
+            return new Numbers(toNumberList(customizedDelimiter.split(data))).sum();
         }
-        Numbers numbers = new Numbers(toNumberList(Splitter.split(data, DELIMITER)));
-        return numbers.sum();
+        return new Numbers(toNumberList(DEFAULT_DELIMITER.split(data))).sum();
     }
 
     private int toInt(String value) {
