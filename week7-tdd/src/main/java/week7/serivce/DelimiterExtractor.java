@@ -2,15 +2,16 @@ package week7.serivce;
 
 public class DelimiterExtractor {
 
-    private static final String FIRST_SEPARATOR = "//";
-    private static final String LAST_SEPARATOR = "\n";
+    private static final int FIRST_SEPARATOR_LENGTH = 2;
     private static final String OR_OPERATOR = "|";
-    private static String delimiter = ",|:";
+    private static final StringBuilder DELIMITER = new StringBuilder(",|:");
 
     private DelimiterExtractor() {
     }
 
-    public static String makeDelimiter(String data) {
-        return delimiter + OR_OPERATOR + data.substring(data.indexOf(FIRST_SEPARATOR)+2, data.indexOf(LAST_SEPARATOR));
+    public static String makeDelimiter(String firstSeparator, String lastSeparator, String data) {
+        DELIMITER.append(OR_OPERATOR);
+        DELIMITER.append(data, data.indexOf(firstSeparator)+FIRST_SEPARATOR_LENGTH, data.indexOf(lastSeparator));
+        return DELIMITER.toString();
     }
 }
