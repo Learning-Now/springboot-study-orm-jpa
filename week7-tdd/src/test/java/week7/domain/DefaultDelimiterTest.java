@@ -44,7 +44,6 @@ public class DefaultDelimiterTest {
     public void splitByDefaultDelimiterTest(String input, String[] expectedValue) {
         // given
         // when
-        DefaultDelimiter defaultDelimiter = new DefaultDelimiter();
         String[] result = defaultDelimiter.split(input);
         // then
         assertThat(result).isEqualTo(expectedValue);
