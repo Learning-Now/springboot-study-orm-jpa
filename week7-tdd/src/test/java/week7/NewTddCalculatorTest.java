@@ -34,19 +34,18 @@ public class NewTddCalculatorTest {
     @DisplayName("입력 테스트")
     @ParameterizedTest
     @MethodSource(value = "inputArguments")
-    public void inputEmptyDataTest() {
-        //given
-        String data = "";
+    public void inputDataTest(String input, int expectedValue) {
+        // given
         // when
-        int result = newTddCalculator.add(data);
+        int result = newTddCalculator.add(input);
         // then
-        assertThat(result).isEqualTo(0);
+        assertThat(result).isEqualTo(expectedValue);
     }
 
     @Test
     @DisplayName("숫자 이외의 값 전달 시 예외 발생")
     public void makeNoNumberErrorTest() {
-        //given
+        // given
         String data = "a,1,2";
         // when
         // then
@@ -59,7 +58,7 @@ public class NewTddCalculatorTest {
     @Test
     @DisplayName("음수 값 전달 시 예외 발생")
     public void makeNegativeNumberErrorTest() {
-        //given
+        // given
         String data = "-1,1,2";
         // when
         // then
