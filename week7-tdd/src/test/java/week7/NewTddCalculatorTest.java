@@ -27,7 +27,8 @@ public class NewTddCalculatorTest {
                 Arguments.of("2,3", 5),
                 Arguments.of("2:3", 5),
                 Arguments.of("2,3,4:5", 14),
-                Arguments.of("//;\n1;2;3", 6)
+                Arguments.of("//;\n1;2;3", 6),
+                Arguments.of("//;\n1,2;3", 6)
         );
     }
 
