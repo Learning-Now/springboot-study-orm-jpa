@@ -18,14 +18,14 @@ public class NewTddCalculator {
     private static final Pattern PATTERN = Pattern.compile(CUSTOM_PATTERN);
 
     public int add(String data) {
-        Matcher matcher = PATTERN.matcher(data);
         if (data.isEmpty()) {
             return 0;
         }
+        Matcher matcher = PATTERN.matcher(data);
         if (matcher.lookingAt()) {
-            String[] splitList = new CustomizedDelimiter(
-                    DelimiterExtractor.makeDelimiter(matcher.group(CUSTOM_DELIMITER_LOCATION))).split(data.substring(matcher.end()));
-            return new Numbers(toNumberList(splitList)).sum();
+            return new Numbers(
+                    toNumberList(new CustomizedDelimiter(DelimiterExtractor.makeDelimiter(matcher.group(CUSTOM_DELIMITER_LOCATION)))
+                    .split(data.substring(matcher.end())))).sum();
         }
         return new Numbers(toNumberList(DEFAULT_DELIMITER.split(data))).sum();
     }
