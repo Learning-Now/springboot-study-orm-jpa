@@ -6,22 +6,26 @@ import week7.serivce.DelimiterExtractor;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class NewTddCalculator {
 
-    private static final String FIRST_SEPARATOR = "//";
-    private static final String LAST_SEPARATOR = "\n";
+    private static final int CUSTOM_DELIMITER_LOCATION = 1;
+    private static final String CUSTOM_PATTERN = "//(.)\n";
     private static final Delimiter DEFAULT_DELIMITER = new DefaultDelimiter();
+    private static final Pattern PATTERN = Pattern.compile(CUSTOM_PATTERN);
 
     public int add(String data) {
+        Matcher matcher = PATTERN.matcher(data);
         if (data.isEmpty()) {
             return 0;
         }
-        if (data.startsWith(FIRST_SEPARATOR)) {
-            CustomizedDelimiter customizedDelimiter = new CustomizedDelimiter(DelimiterExtractor.makeDelimiter(FIRST_SEPARATOR, LAST_SEPARATOR, data));
-            data = data.substring(data.indexOf(LAST_SEPARATOR)+LAST_SEPARATOR.length());
-            return new Numbers(toNumberList(customizedDelimiter.split(data))).sum();
+        if (matcher.lookingAt()) {
+            String[] splitList = new CustomizedDelimiter(
+                    DelimiterExtractor.makeDelimiter(matcher.group(CUSTOM_DELIMITER_LOCATION))).split(data.substring(matcher.end()));
+            return new Numbers(toNumberList(splitList)).sum();
         }
         return new Numbers(toNumberList(DEFAULT_DELIMITER.split(data))).sum();
     }
