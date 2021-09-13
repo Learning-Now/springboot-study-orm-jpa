@@ -37,7 +37,7 @@ public class NewTddCalculator {
     private List<Number> toNumberList(String[] values) {
         return Arrays.stream(values)
                 .mapToInt(this::toInt)
-                .mapToObj(Number::new
-                ).collect(Collectors.toList());
+                .mapToObj(Number::new)
+                .collect(Collectors.toList());
     }
 }
