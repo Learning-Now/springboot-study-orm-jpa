@@ -29,7 +29,7 @@ public class Number {
 
     private static void validateParseNumber(String number) {
         if(isNumber(number)) {
-            throw new IllegalArgumentException(NUMBER_ERROR_MESSAGE);
+            throw new RuntimeException(NUMBER_ERROR_MESSAGE);
         };
     }
 
@@ -39,7 +39,7 @@ public class Number {
 
     private void validateNumber(int number) {
         if (number < ZERO) {
-            throw new IllegalArgumentException(RUNTIME_ERROR_MESSAGE);
+            throw new RuntimeException(RUNTIME_ERROR_MESSAGE);
         }
     }
 
