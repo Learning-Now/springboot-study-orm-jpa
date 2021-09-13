@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Number {
     private static final String NUMBER_PATTERN = "^[0-9]*$";
-    private static final String RUNTIME_ERROR_MESSAGE = "Error : 음수는 입력될수 없음.";
-    private static final String NUMBER_ERROR_MESSAGE = "Error : 숫자가 아닌값이 입력되었습니다.";
+    private static final String NO_INTEGER_ERROR_MESSAGE = "Error : 음수는 입력될수 없음.";
+    private static final String NUMBER_FORMAT_ERROR_MESSAGE = "Error : 숫자가 아닌값이 입력되었습니다.";
     private static final int ZERO = 0;
     private final int value;
 
@@ -29,7 +29,7 @@ public class Number {
 
     private static void validateParseNumber(String number) {
         if(isNumber(number)) {
-            throw new IllegalArgumentException(NUMBER_ERROR_MESSAGE);
+            throw new IllegalArgumentException(NUMBER_FORMAT_ERROR_MESSAGE);
         };
     }
 
@@ -39,7 +39,7 @@ public class Number {
 
     private void validateNumber(int number) {
         if (number < ZERO) {
-            throw new IllegalArgumentException(RUNTIME_ERROR_MESSAGE);
+            throw new IllegalArgumentException(NO_INTEGER_ERROR_MESSAGE);
         }
     }
 
