@@ -3,8 +3,12 @@ package domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,21 +16,55 @@ import static org.junit.jupiter.api.Assertions.*;
 class NumberTest {
 
     @DisplayName("createNumber Test")
-    @Test
-    void createNumberTest() {
+    @ParameterizedTest
+    @ValueSource(strings = {"1","2","34"})
+    void createNumberTestByString(String value) {
         //given
-        String input = "12";
-        Number number = new Number(input);
+        Number number = new Number(value);
         //when
         //then
-        assertThat(number).isEqualTo(new Number("12"));
+        assertThat(number).isEqualTo(new Number(value));
+
     }
 
-    @DisplayName("createNumberFail 반복 테스트")
+    @DisplayName("createNumber Test")
     @ParameterizedTest
-    @CsvSource({"12a", "-1"}) //단 1개의 타입만 넘겨야함.
-    void createNumberFailTest(String value) {
+    @ValueSource(ints = {1,2,3})
+    void createNumberTestByInt(int value) {
+        //given
+        Number number = new Number(value);
+        //when
+        //then
+        assertThat(number).isEqualTo(new Number(value));
+
+    }
+
+    @DisplayName("NumberExceptionByInteger Test")
+    @ParameterizedTest
+    @MethodSource("generateDataByString")
+    void NumberExceptionTest(String value) {
         assertThatThrownBy(() -> new Number(value))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(RuntimeException.class);
+    }
+
+    @DisplayName("NumberExceptionByString Test")
+    @ParameterizedTest
+    @MethodSource("generateDataByInt")
+    void NumberExceptionTest(int value) {
+        assertThatThrownBy(() -> new Number(value))
+                .isInstanceOf(RuntimeException.class);
+    }
+
+    static Stream<Arguments> generateDataByInt() {
+        return Stream.of(
+                Arguments.of(-2),
+                Arguments.of(-1));
+    }
+
+    static Stream<Arguments> generateDataByString() {
+        return Stream.of(
+                Arguments.of("a"),
+                Arguments.of("마"),
+                Arguments.of(" "));
     }
 }
