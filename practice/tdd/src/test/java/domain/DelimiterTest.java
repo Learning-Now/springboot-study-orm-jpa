@@ -17,6 +17,16 @@ class DelimiterTest {
         assertThat(delimiter).isEqualTo(new Delimiter(";"));
     }
 
+    @DisplayName("구분자 생성 테스트")
+    @Test
+    void createCustomDelimiter() {
+        //given
+        Delimiter delimiter = new Delimiter("//!\n");
+        //when
+        //then
+        assertThat(delimiter).isEqualTo(new Delimiter("//!\n"));
+    }
+
     @DisplayName("split 테스트")
     @Test
     void splitTest() {
