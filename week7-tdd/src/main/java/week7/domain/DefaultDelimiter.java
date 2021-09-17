@@ -7,8 +7,4 @@ public class DefaultDelimiter extends Delimiter{
     public DefaultDelimiter() {
         value = DEFAULT_DELIMITER;
     }
-
-    public String[] split(String input) {
-        return input.split(value);
-    }
 }

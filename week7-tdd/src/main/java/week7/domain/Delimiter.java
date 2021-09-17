@@ -4,5 +4,7 @@ public abstract class Delimiter {
 
     protected String value;
 
-    public abstract String[] split(String input);
+    public String[] split(String input) {
+        return input.split(value);
+    };
 }
