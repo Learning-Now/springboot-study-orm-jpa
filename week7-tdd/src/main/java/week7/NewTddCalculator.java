@@ -23,9 +23,8 @@ public class NewTddCalculator {
         }
         Matcher matcher = PATTERN.matcher(data);
         if (matcher.lookingAt()) {
-            return new Numbers(
-                    toNumberList(new CustomizedDelimiter(DelimiterExtractor.makeDelimiter(matcher.group(CUSTOM_DELIMITER_LOCATION)))
-                    .split(data.substring(matcher.end())))).sum();
+            Delimiter customizedDelimiter = new CustomizedDelimiter(DelimiterExtractor.makeDelimiter(matcher.group(CUSTOM_DELIMITER_LOCATION)));
+            return new Numbers(toNumberList(customizedDelimiter.split(data.substring(matcher.end())))).sum();
         }
         return new Numbers(toNumberList(DEFAULT_DELIMITER.split(data))).sum();
     }
