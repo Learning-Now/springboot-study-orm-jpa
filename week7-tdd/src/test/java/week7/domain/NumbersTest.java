@@ -1,6 +1,7 @@
 package week7.domain;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -30,5 +31,25 @@ public class NumbersTest {
         int result = numbers.sum();
         // then
         assertThat(result).isEqualTo(expectedValue);
+    }
+
+    @DisplayName("Number 리스트 생성자 테스트")
+    @Test
+    public void numberListConstructorTest() {
+        // given
+        List<Number> numberList = Arrays.asList(new Number(1), new Number(2), new Number(3));
+        // when
+        // then
+        new Numbers(numberList);
+    }
+
+    @DisplayName("String 배열 생성자 테스트")
+    @Test
+    public void stringArrayConstructorTest() {
+        // given
+        String[] input = {"1", "2", "3"};
+        // when
+        // then
+        new Numbers(input);
     }
 }
