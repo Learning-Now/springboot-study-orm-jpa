@@ -1,5 +1,7 @@
 package week7.domain;
 
+import week7.util.Converter;
+
 public class Number {
 
     private static final int ZERO = 0;
@@ -8,6 +10,12 @@ public class Number {
     public Number(int value) {
         validate(value);
         this.value = value;
+    }
+
+    public Number(String value) {
+        int number = Converter.toInt(value);
+        validate(number);
+        this.value = number;
     }
 
     private void validate(int value) {
