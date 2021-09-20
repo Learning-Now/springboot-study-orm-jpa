@@ -1,5 +1,7 @@
 package week7.domain;
 
+import week7.util.Converter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,10 @@ public class Numbers {
 
     public Numbers(List<Number> numbers) {
         this.numbers = new ArrayList<>(numbers);
+    }
+
+    public Numbers(String[] input) {
+        this(Converter.toNumberList(input));
     }
 
     public int sum() {
