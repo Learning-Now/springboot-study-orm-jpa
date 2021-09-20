@@ -1,16 +1,16 @@
 package domain;
 
+import util.Converter;
+
 import java.util.Objects;
 
 public class Number {
-    private static final String NUMBER_PATTERN = "^[0-9]*$";
     private static final String RUNTIME_ERROR_MESSAGE = "Error : 음수는 입력될수 없음.";
-    private static final String NUMBER_ERROR_MESSAGE = "Error : 숫자가 아닌값이 입력되었습니다.";
     private static final int ZERO = 0;
     private final int value;
 
     public Number(String number) {
-        this(stringToInt(number));
+        this(Converter.stringToInt(number));
     }
 
     public Number(int number) {
@@ -20,21 +20,6 @@ public class Number {
 
     public int getValue() {
         return value;
-    }
-
-    private static int stringToInt(String stringNumber) {
-        validateParseNumber(stringNumber);
-        return Integer.parseInt(stringNumber);
-    }
-
-    private static void validateParseNumber(String number) {
-        if(isNumber(number)) {
-            throw new RuntimeException(NUMBER_ERROR_MESSAGE);
-        };
-    }
-
-    private static boolean isNumber(String number) {
-        return !number.matches(NUMBER_PATTERN);
     }
 
     private void validateNumber(int number) {
