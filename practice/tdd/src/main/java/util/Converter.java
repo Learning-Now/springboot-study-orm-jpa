@@ -1,5 +1,11 @@
 package util;
 
+import domain.Number;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Converter {
     private static final String NUMBER_PATTERN = "^[0-9]*$";
     private static final String NUMBER_ERROR_MESSAGE = "Error : 숫자가 아닌값이 입력되었습니다.";
@@ -13,12 +19,18 @@ public class Converter {
     }
 
     public static void validateParseNumber(String number) {
-        if(isNumber(number)) {
+        if(!isNumber(number)) {
             throw new RuntimeException(NUMBER_ERROR_MESSAGE);
-        };
-    }
-    public static boolean isNumber(String number) {
-        return !number.matches(NUMBER_PATTERN);
+        }
     }
 
+    public static boolean isNumber(String number) {
+        return number.matches(NUMBER_PATTERN);
+    }
+
+    public static List<Number> arrayToList(String[] numbers) {
+        return Arrays.stream(numbers)
+                .map(Number::new)
+                .collect(Collectors.toList());
+    }
 }

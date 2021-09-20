@@ -1,5 +1,7 @@
 package domain;
 
+import util.Converter;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +12,7 @@ public class Numbers {
     private final List<Number> numbers;
 
     public Numbers(String[] numbers) {
-        this(arrayToList(numbers));
+        this(Converter.arrayToList(numbers));
     }
 
     public Numbers(List<Number> numbers) {
@@ -21,12 +23,6 @@ public class Numbers {
         return numbers.stream()
                 .mapToInt(Number::getValue)
                 .sum();
-    }
-
-    private static List<Number> arrayToList(String[] numbers) {
-        return Arrays.stream(numbers)
-                .map(Number::new)
-                .collect(Collectors.toList());
     }
 
     @Override
