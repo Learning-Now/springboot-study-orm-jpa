@@ -1,4 +1,4 @@
-package week7;
+package week7.serivce;
 
 import week7.domain.*;
 import week7.domain.Number;
