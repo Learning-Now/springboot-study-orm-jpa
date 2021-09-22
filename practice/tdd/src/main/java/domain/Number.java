@@ -5,7 +5,7 @@ import util.Converter;
 import java.util.Objects;
 
 public class Number {
-    private static final String RUNTIME_ERROR_MESSAGE = "Error : 음수는 입력될수 없음.";
+    private static final String NEGATIVE_ERROR_MESSAGE = "Error : 음수는 입력될수 없음.";
     private static final int ZERO = 0;
     private final int value;
 
@@ -24,7 +24,7 @@ public class Number {
 
     private void validateNumber(int number) {
         if (number < ZERO) {
-            throw new RuntimeException(RUNTIME_ERROR_MESSAGE);
+            throw new RuntimeException(NEGATIVE_ERROR_MESSAGE);
         }
     }
 
