@@ -3,12 +3,10 @@ package domain;
 import java.util.Objects;
 
 public class DefaultDelimiter extends Delimiter{
+    private static final String DEFAULT_PATTERN = "[,;]";
 
     public DefaultDelimiter() {
-    }
-
-    public String[] split(String input) {
-        return input.split(this.value);
+        super.value = DEFAULT_PATTERN;
     }
 
     @Override
