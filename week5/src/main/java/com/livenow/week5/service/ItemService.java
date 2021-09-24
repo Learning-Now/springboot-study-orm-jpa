@@ -5,7 +5,10 @@ import com.livenow.week5.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+<<<<<<< HEAD
 import com.livenow.week5.repository.ItemJpaRepository;
+=======
+>>>>>>> 5dc41a753dc0b546296c05ee079933e254b21ef0
 
 import java.util.List;
 
@@ -15,10 +18,16 @@ import java.util.List;
 public class ItemService {
 
     private final ItemRepository itemRepository;
+<<<<<<< HEAD
     private final ItemJpaRepository itemJpaRepository;
     @Transactional // readonly가 true이기때문
     public void saveItem(Item item) {
         itemJpaRepository.save(item);
+=======
+
+    @Transactional // readonly가 true이기때문
+    public void saveItem(Item item) {
+>>>>>>> 5dc41a753dc0b546296c05ee079933e254b21ef0
         itemRepository.save(item);
     }
 
@@ -32,7 +41,11 @@ public class ItemService {
      */
     @Transactional
     public void updateItem(Long itemId, String name, int price, int stockQuantity) {
+<<<<<<< HEAD
         Item findItem = itemJpaRepository.findById(itemId).get();
+=======
+        Item findItem = itemRepository.findOne(itemId);
+>>>>>>> 5dc41a753dc0b546296c05ee079933e254b21ef0
         findItem.setName(name);
         findItem.setPrice(price);
         findItem.setStockQuantity(stockQuantity);
@@ -53,11 +66,19 @@ public class ItemService {
         return findItem;
     }*/
     public List<Item> findItems() {
+<<<<<<< HEAD
         return itemJpaRepository.findAll();
     }
 
     public Item findOne(Long id) {
         return itemJpaRepository.findById(id).get();
+=======
+        return itemRepository.findAll();
+    }
+
+    public Item findOne(Long id) {
+        return itemRepository.findOne(id);
+>>>>>>> 5dc41a753dc0b546296c05ee079933e254b21ef0
     }
 
 

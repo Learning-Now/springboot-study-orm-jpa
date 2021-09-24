@@ -13,7 +13,11 @@
                 <div class="form-group mx-sm-1 mb-2">
                     <select th:field="*{orderStatus}" class="form-control">
                         <option value="">주문상태</option>
+<<<<<<< HEAD
                         <option th:each="status : ${T(livenowjpaweb.jpashop.domain.OrderStatus).values()}"
+=======
+                        <option th:each="status : ${T(com.livenow.week5.domain.OrderStatus).values()}"
+>>>>>>> 5dc41a753dc0b546296c05ee079933e254b21ef0
                                 th:value="${status}"
                                 th:text="${status}">option
                         </option>

@@ -8,17 +8,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
-<<<<<<< HEAD
+      format_sql: true
     show-sql: true
-  h2:
-    console:
-      enabled: true
-=======
-  h2:
-    console:
-      enabled: true
 
-logging:
-  level:
-    org.hibernate.SQL: debug
->>>>>>> 5dc41a753dc0b546296c05ee079933e254b21ef0
+  h2:
+    console:
+      enabled: true

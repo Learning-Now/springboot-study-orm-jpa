@@ -44,7 +44,11 @@ public abstract class Item {
             throw new NotEnoughStockException("need more stock");
         }
         this.stockQuantity = restStock;
+<<<<<<< HEAD
 
     }
 
+=======
+    }
+>>>>>>> 5dc41a753dc0b546296c05ee079933e254b21ef0
 }
